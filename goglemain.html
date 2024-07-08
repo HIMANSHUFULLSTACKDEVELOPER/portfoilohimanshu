@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Search Engine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:white;
+            color: #e9d8d8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            margin-top: 15%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #000000;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 16px;
+            outline: none;
+            background-color: #555;
+            color: #fff;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #4285f4;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #357ae8;
+        }
+
+        #results {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .result {
+            margin: 10px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            width: 200px;
+            height: 150px;
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .result:hover {
+            transform: translateY(-5px);
+        }
+
+        .result h3 {
+            margin-top: 0;
+            font-size: 18px;
+            color: #4285f4;
+            text-align: center;
+        }
+
+        .result a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .result img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10%;
+            margin-right: 10px;
+            vertical-align: middle;
+            margin-left: 25%;
+        }
+
+        .suggestion {
+            cursor: pointer;
+            padding: 5px;
+            border-bottom: 1px solid #ccc;
+            color: #150606;
+        }
+
+        .suggestion:last-child {
+            border-bottom: none;
+        }
+
+        .suggestion:hover {
+            background-color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="">
+    <div class="container">
+        <img style="height: 260px; margin-left: 300px;" src="./himph.jpg" alt="" class="google"    > <!-- Google logo or image -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search for websites...">
+            <div id="searchHelp"></div>
+            <button onclick="search()">Search</button>
+        </div>
+        <div id="websiteResults" class="results"></div>
+    </div>
+    <script>
+        const searchData = [
+            { title: "Google", link: "https://www.google.com", image: "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" },
+            { title: "himanshu patil", link: "https://himanshufullstackdeveloper.github.io/portfoilo/", image: "himanshu.jpg" },
+            { title: "YouTube", link: "https://www.youtube.com/", image: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" },
+            { title: "Netflix", link: "https://www.netflix.com/in/", image: "https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png" },
+            { title: "JioCinema", link: "https://www.jiocinema.com/", image: "https://upload.wikimedia.org/wikipedia/commons/5/5a/Jio_cinema.png" },
+            { title: "GitHub", link: "https://github.com/", image: "https://github.githubassets.com/favicons/favicon.png" },
+            { title: "Wikipedia", link: "https://www.wikipedia.org", image: "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" },
+            { title: "Sora Background Remover", link: "https://www.remove.bg/", image: "https://www.remove.bg/favicon.ico" },
+            { title: "Disney+", link: "https://www.hotstar.com/in/home?ref=%2Fin", image: "https://www.disneyplus.com/favicon.ico" },
+            { title: "Hotstar", link: "https://www.hotstar.com/in/home?ref=%2Fin", image: "https://www.hotstar.com/assets/17eabf35d09aeb6595e56ad89729e43e.svg" },
+            { title: "Royal Challengers Bangalore", link: "https://www.royalchallengers.com/", image: "https://www.royalchallengers.com/themes/custom/rcbbase/images/rcb-logo-new.png" },
+            { title: "Black Box AI Chat", link: "", image: "https://www.blackboxai.chat/img/logo.png" },
+            { title: "Chat GPT", link: "https://chat.openai.com/", image: "https://openai.com/favicon.ico" },
+            { title: "W3Schools", link: "https://www.w3schools.com", image: "https://www.w3schools.com/favicon.ico" },
+            { title: "Poki Games", link: "https://www.poki.com", image: "https://www.poki.com/_next/static/media/logo-09f6f541caca80fd21db2166014db9d8.png" },
+            { title: "Virat Kohli", link: "https://en.wikipedia.org/wiki/Virat_Kohli", image: "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" },
+            { title: "Mahendra Singh Dhoni", link: "https://en.wikipedia.org/wiki/Mahendra_Singh_Dhoni", image: "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" },
+            { title: "Rohit Sharma", link: "https://en.wikipedia.org/wiki/Rohit_Sharma", image: "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" },
+            { title: "AB de Villiers", link: "https://en.wikipedia.org/wiki/AB_de_Villiers", image: "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" },
+            { title: "Chris Gayle", link: "https://en.wikipedia.org/wiki/Chris_Gayle", image: "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" },
+            { title: "Dinesh Karthik", link: "https://en.wikipedia.org/wiki/Dinesh_Karthik", image: "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" },
+            { title: "Narendra Modi", link: "https://en.wikipedia.org/wiki/Narendra_Modi", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/PM_Modi_2015.jpg/220px-PM_Modi_2015.jpg" },
+            { title: "Ravindra Jadeja", link: "https://en.wikipedia.org/wiki/Ravindra_Jadeja", image: "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" },
+            { title: "Mohammed Shami", link: "https://en.wikipedia.org/wiki/Mohammed_Shami", image: "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" },
+            { title: "Mohammed Siraj", link: "https://en.wikipedia.org/wiki/Mohammed_Siraj", image: "https://upload.wikimedia.org/wikipedia/en/thumb/8/80/Wikipedia-logo-v2.svg/1200px-Wikipedia-logo-v2.svg.png" }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Open the "Websites" tab by default
+            document.getElementById('websites').classList.add('active');
+            document.querySelector('.tab.active').classList.remove('active');
+            document.querySelector('.tab:first-child').classList.add('active');
+        });
+
+        function openTab(evt, tabName) {
+            const tabContents = document.getElementsByClassName("tab-content");
+            for (let content of tabContents) {
+                content.classList.remove("active");
+            }
+            const tabs = document.getElementsByClassName("tab");
+            for (let tab of tabs) {
+                tab.classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        const searchInput = document.getElementById('searchInput');
+        const searchHelp = document.getElementById('searchHelp');
+
+        searchInput.addEventListener('input', function () {
+            const inputValue = this.value.trim().toLowerCase();
+            const suggestions = searchData.filter(item => item.title.toLowerCase().startsWith(inputValue));
+            displaySuggestions(suggestions, searchHelp);
+        });
+
+        function search() {
+            const inputValue = searchInput.value.trim().toLowerCase();
+            const resultsContainer = document.getElementById('websiteResults');
+            resultsContainer.innerHTML = '';
+
+            const filteredResults = searchData.filter(result =>
+                result.title.toLowerCase().includes(inputValue)
+            );
+
+            if (filteredResults.length === 0) {
+                resultsContainer.innerHTML = "<p>No results found. Try searching for websites.</p>";
+            } else {
+                filteredResults.forEach(result => {
+                    const resultElement = document.createElement('div');
+                    resultElement.classList.add('result');
+                    const link = document.createElement('a');
+                    link.href = result.link;
+                    link.target = "_blank";
+                    const image = document.createElement('img');
+                    image.src = result.image;
+                    const title = document.createElement('h3');
+                    title.textContent = result.title;
+                    link.appendChild(image);
+                    link.appendChild(title);
+                    resultElement.appendChild(link)
+                        ;
+                    resultsContainer.appendChild(resultElement);
+                });
+            }
+        }
+
+        function displaySuggestions(suggestions, container) {
+            container.innerHTML = '';
+            suggestions.forEach(suggestion => {
+                const suggestionItem = document.createElement('div');
+                suggestionItem.textContent = suggestion.title;
+                suggestionItem.classList.add('suggestion');
+                suggestionItem.addEventListener('click', function () {
+                    container.previousSibling.value = suggestion.title;
+                    container.innerHTML = '';
+                });
+                container.appendChild(suggestionItem);
+            });
+        }
+    </script>
+</body>
+
+</html>
+
+

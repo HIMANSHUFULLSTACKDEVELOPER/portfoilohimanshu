@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery Game</title>
+    <link rel="stylesheet" href="coins.css">
+    <script src="./coins.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Lottery Game</h1>
+    </header>
+    <main>
+        <div class="game-container">
+            <div class="display">
+                <h2 id="display-text">Welcome to the Lottery Game!</h2>
+                <div id="loader" class="loader hidden"></div>
+            </div>
+            <form id="game-form" class="input-container">
+                <label for="bet-number">Bet Number:</label>
+                <input id="bet-number" type="number" min="1" max="99" required placeholder="Enter a number (1-99)">
+                
+                <label for="coins">Coins to Bet:</label>
+                <input id="coins" type="number" min="1" required placeholder="Enter coins to bet">
+                
+                <button type="submit" id="play-button">Play Now</button>
+            </form>
+            <div id="result" class="result hidden"></div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Lottery Game..</p>
+    </footer>
+</body>
+</html>

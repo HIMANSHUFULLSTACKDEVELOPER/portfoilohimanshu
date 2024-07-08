@@ -1,0 +1,58 @@
+ /* Styling for the body */
+
+ body {
+    background-image: url("https://tse4.mm.bing.net/th?id=OIP.c_JXwuJvpUkycsXNZACSTAHaE8&pid=Api&P=0&h=180");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Styling for the container */
+.container {
+    max-width: 600px;
+    height: 600px;
+    margin: 50px auto;
+    background-color: rgba(195, 222, 135, 0);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+    margin-top: 150px;
+    box-shadow: 0px 0px 32px rgba(24, 15, 15, 0.148);
+}
+
+/* Styling for the heading */
+h1 {
+    text-align: center;
+    font-size: 54px;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Styling for the labels */
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: rgb(251, 139, 2);
+    font-size: 32px;
+}
+
+/* Styling for the number input fields */
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ff0606;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    font-size: 33px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Styling for the results */
+#results {
+    margin-top: 20px;
+    font-size: 53px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+}

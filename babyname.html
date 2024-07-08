@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- links -->
+   <link rel="stylesheet" href="./babyname.css">
+   <script src="./babyname.js"></script>
+   <!-- little -->
+    <title>baby name</title>
+    
+</head>
+<!-- body  -->
+<body style="background-color: rgb(232, 232, 232);">
+   <!-- box -->
+    <div class="box">
+        <br>
+        <br>
+        <!-- name -->
+        <h1
+            style="font-size: 53px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-style: oblique;">
+            Enter Alphabet</h1>
+        <input type="text" id="letterInput" placeholder="Enter a letter" oninput="displayName()">
+        <br>
+        <br>
+<!-- boys button  -->
+        <button style="font-size: 27px;  width: 200px;
+        height: 50px; border-radius: 20px;background-color: aquamarine;" onclick="displayBoysNames()">Boys
+            Names</button>
+            <!-- button girl -->
+        <button style="font-size: 27px;  width: 200px;
+        height: 50px; border-radius: 20px;background-color: aquamarine;" onclick="displayGirlsNames()">Girls
+            Names</button>
+<!-- name cntainer -->
+        <div id="name-container" class="alphabet-container"></div>
+    </div>
+   
+</body>
+
+</html>

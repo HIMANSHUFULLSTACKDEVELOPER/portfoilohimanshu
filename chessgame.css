@@ -1,0 +1,64 @@
+/* style  containe*/
+.container {
+
+    height: 50VW;
+    width: 50vw;
+    flex-direction: column;
+    display: flex;
+    border-color: black;
+    border: solid;
+    margin-left: 25vw;
+    margin-right: 25vw;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+}
+/* style row */
+.chessrow {
+    width: 100%;
+    height: 12.5%;
+    background-color: gray;
+    display: flex;
+    flex-direction: row;
+}
+/* style color */
+.white {
+    background-color: white;
+    height: 100%;
+    width: 12.5%;
+}
+/* style  color*/
+.black {
+    background-color: black;
+    height: 100%;
+    width: 12.5%;
+}
+/* style img */
+.images {
+    width: 5vw;
+    height: 6vw;
+    margin-left: 9px;
+    font-size: 22px;
+}
+/* style  Animation*/
+.game {
+
+    font-size: 25px;
+    color: gray;
+    position: relative;
+    animation-name: mymove;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes mymove {
+    from {
+        left: 0px;
+        color: aqua;
+        font-size: 2px;
+    }
+
+    to {
+        left: 180px;
+        font-size: 30px;
+    }
+}

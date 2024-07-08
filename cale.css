@@ -1,0 +1,21 @@
+/* style table th td */
+table,
+th,
+td {
+    border: 2px solid white;
+    font-size: 70px;
+}
+/* style  body*/
+body {
+    background: url(https://petitinvention.files.wordpress.com/2009/07/25601.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: auto;
+    background-position: 0%;
+} 
+/* style  p */
+p {
+    margin-left: 550px;
+    font-size: 60px;
+
+}
