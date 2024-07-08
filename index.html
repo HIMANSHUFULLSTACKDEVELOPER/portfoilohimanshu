@@ -226,12 +226,13 @@
             </div>
             <!-- project nav bar -->
             <div class="container">
-                <div class="fillter-buttons">
-                    <button class="btn" data-filter="all">All</button>
-                    <button class="btn" data-filter=".html">HTML</button>
-                    <button class="btn" data-filter=".css">CSS</button>
-                    <button class="btn" data-filter=".js">JS</button>
-                    <button class="btn" data-filter=".websites">Web Sites</button>
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter=".html">HTML</button>
+                    <button class="filter-btn" data-filter=".css">CSS</button>
+                    <button class="filter-btn" data-filter=".js">JS</button>
+                    <button class="filter-btn" data-filter=".websites">Web Sites</button>
+                    <button class="filter-btn" data-filter=".md">Mobile Developer</button>
                 </div>
                 <!-- Portfolio Item 1 -->
                 <div class="portfolio-gallery">
@@ -679,6 +680,24 @@
                                     class='bx bx-link-external'></i></a>
                         </div>
                     </div>
+
+                    <div class="port-box mix md">
+
+                        <div class="port-image">
+                            <a href="ht">
+                                <img src="https://play-lh.googleusercontent.com/wiLKNn9tyY-SiNWg_Pib1stLmZU9lYuadq-Y4ASfi7OtJzLDmDknUFcqejQjw4Sqjg"
+                                    alt="./addorsubordiv.png" height="500px" ;width="500px" ;>
+                        </div></a>
+
+                        <div class="port-conternt">
+                            <h3>BMI Calculator: </h3>
+
+                            <a href=""><i class='bx bx-link-external'></i></a>
+                        </div>
+                    </div>
+
+
+
                 </div>
 
 
@@ -743,60 +762,73 @@
 
         <!-- contact -->
         <section id="contact" class="contact">
-            <div class="main-text">
-                <span>Ask Me Question </span>
-                <p>contacts</p>
-            </div>
-            <!-- Footer Section -->
-            <div class="footer__container">
-                <div class="footer__links">
-                    <div class="footer__link--wrapper">
-                        <div class="footer__link--items">
-                            <!-- how many work -->
-                            <h2>About Us</h2>
-                            <a href="/sign__up">How it works</a> <a href="/">Testimonials</a>
-                            <a href="/">Careers</a> <a href="/">Terms of Service</a>
+            <div class="container">
+                <div class="main-text">
+                    <span>Ask Me Question</span>
+                    <h2>Contacts</h2>
+                </div>
+              
+                <div class="contact-content">
+                    <div class="contact-card">
+                        <div class="card-front">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email</h3>
                         </div>
-                        <div class="footer__link--items">
-                            <h2>Contact Us</h2>
-                            <a href="/">Contact</a> <a href="/">Support</a>
-                            <a href="/">Destinations</a>
+                        <div class="card-back">
+                            <a href="mailto:himanshu@example.com">patilhimanshu46875@gmail.com</a>
                         </div>
                     </div>
-                    <div class="footer__link--wrapper">
-                        <div class="footer__link--items">
-                            <h2>Videos</h2>
-                            <a href="/">Submit Video</a> <a href="/">Ambassadors</a>
-                            <a href="/">Agency</a>
+                    
+                    <div class="contact-card">
+                        <div class="card-front">
+                            <i class="fas fa-phone"></i>
+                            <h3>Phone</h3>
                         </div>
-                        <div class="footer__link--items">
-                            <!-- social icons -->
-                            <h2>Social Media</h2>
-                            <a href="https://www.instagram.com/himan_shu2715/">Instagram</a> <a
-                                href="https://www.facebook.com/profile.php?id=100090566917561">Facebook</a>
-                            <a
-                                href="https://www.linkedin.com/in/himanshu-patil-1630412b1/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Linkedin</a>
+                        <div class="card-back">
+                            <a href="tel:+1234567890">+918788209773</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="card-front">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>Location</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>Katol,India</p>
                         </div>
                     </div>
                 </div>
-                <section class="social__media">
-                    <div class="social__media--wrap">
-                        <div class="footer__logo">
-                            <a href="/" id="footer__logo"></a>
-                        </div>
-
-                        <p class="website__rights">himanshu patil</p>
-                        <!-- social icons -->
-                        <div class="social__icons">
-                            <a href="https://www.facebook.com/profile.php?id=100090566917561" class="social__icon--link"
-                                target="_blank"><i class="fab fa-facebook"></i></a>
-                            <a href="https://www.instagram.com/himan_shu2715/" class="social__icon--link"><i
-                                    class="fab fa-instagram"></i></a>
-                            <a href="https://www.linkedin.com/in/himanshu-patil-1630412b1/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                                class="social__icon--link"><i class="fab fa-linkedin"></i></a>
-                        </div>
+                
+               
+            </div>
+        </section>
+        
+        <footer class="footers">
+            <div class="containers">
+                <div class="footer-contents">
+                    <div class="footer-logos">
+                        <h2>Himanshu Patil</h2>
+                        <p>Full Stack Developer</p>
                     </div>
-                </section>
+                    <div class="footer-links">
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <div class="footer-social">
+                        <a href="https://github.com/HIMANSHUFULLSTACKDEVELOPER" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/himanshu-patil-1630412b1/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/himan_shu2715/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100090566917561" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>  Himanshu Patil</p>
+                </div>
+            </div>
+        </footer>
             </div>
             <!-- links -->
             <script src="./mixitup.min.js"></script>
