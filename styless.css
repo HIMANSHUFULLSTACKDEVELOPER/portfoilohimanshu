@@ -2,19 +2,6 @@
 
 
 
-/* cursor */
-.circle {
-    height: 24px;
-    width: 24px;
-    border-radius: 24px;
-    background-color: #eb7e7e;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-
-
 
 
 
@@ -458,15 +445,14 @@ a.btn:nth-child(2)::before {
 
 /* about */
 
-
-
 .about {
-    display: flex;
+
+
+       display: flex;
     justify-content: center;
     align-items: center;
     grid-gap: 3em;
     background: var(--secon-bg-color);
-    margin-top: 383px;
 }
 
 /* abut img */
