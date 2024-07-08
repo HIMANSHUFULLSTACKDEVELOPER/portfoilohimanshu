@@ -1,0 +1,20 @@
+
+/* style border th td */
+table,
+th,
+td {
+    border: 1.5px solid black;
+    border-collapse: collapse;
+    font-size: 30px;
+    padding-left: 40px;
+}
+
+/* style td */
+
+td {
+    font-size: 22px;
+}
+/* style  h1*/
+h1 {
+    text-align: center;
+}

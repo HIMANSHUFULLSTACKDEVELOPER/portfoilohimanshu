@@ -1,0 +1,108 @@
+
+/* style animation */
+h1{font-size: 45px;
+    color: black;
+    position: relative;
+    animation-name: mymove;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes mymove {
+    from {
+        left: 0px;
+        color: aqua;
+        font-size: 2px;
+    }
+
+    to {
+        left: 250px;
+        font-size: 80px;
+    }
+}
+/* style  td*/
+td{
+    font-size: 22px;
+}
+/* style h2 animation */
+h2{font-size: 45px;
+    color: black;
+    position: relative;
+    animation-name: mymove;
+    animation-duration: 6s;
+    animation-fill-mode: forwards;
+    animation-delay: 5s;
+}
+
+@keyframes mymove {
+    from {
+        left: 0px;
+        color: aqua;
+        font-size: 2px;
+    }
+
+    to {
+        left: 250px;
+        font-size: 60px;
+    }
+}
+/* style td*/
+td{
+    font-size: 22px;
+}
+/* style animation */
+h3{font-size: 45px;
+    color: black;
+    position: relative;
+    animation-name: mymove;
+    animation-duration: 7s;
+    animation-fill-mode: forwards;
+    animation-delay: 7s;
+}
+
+@keyframes mymove {
+    from {
+        left: 0px;
+        color: aqua;
+        font-size: 2px;
+    }
+
+    to {
+        left: 250px;
+        font-size: 60px;
+    }
+}
+/* style  td*/
+td{
+    font-size: 22px;
+}
+/* style h4 anim */
+h4{font-size: 45px;
+    color: black;
+    position: relative;
+    animation-name: mymove;
+    animation-duration: 7s;
+    animation-fill-mode: forwards;
+    animation-delay: 10s;
+}
+
+@keyframes mymove {
+    from {
+        left: 0px;
+        color: aqua;
+        font-size: 2px;
+    }
+
+    to {
+        left: 250px;
+        font-size: 60px;
+    }
+}
+/* style td */
+td{
+    font-size: 22px;
+}
+/* style a */
+a{
+    text-decoration: none;
+}

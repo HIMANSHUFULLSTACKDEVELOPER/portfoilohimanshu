@@ -1,0 +1,23 @@
+
+/* style animation */
+.rev {
+    font-size: 25px;
+    color: gray;
+    position: relative;
+    animation-name: mymove;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes mymove {
+    from {
+        left: 0px;
+        color: aqua;
+        font-size: 2px;
+    }
+
+    to {
+        left: 180px;
+        font-size: 30px;
+    }
+}

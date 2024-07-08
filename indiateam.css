@@ -1,0 +1,22 @@
+/* style body */
+body {
+    background: url(./images_videos/him.jpg)no-repeat center/cover;
+}
+/* style  p*/
+p {
+    color: black;
+    /* Set your desired text color */
+}
+/* style a  */
+a {
+    margin-left: 360px;
+
+}
+/* style  video*/
+video {
+    margin-left: 160px;
+}
+/* style  h2*/
+h2 {
+    text-align: center;
+}
