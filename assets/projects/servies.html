@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services - Glass Style</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #fff;
+        }
+
+        .services-section {
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .services-section h1 {
+            font-size: 3rem;
+            color: #e2e8f0;
+            margin-bottom: 10px;
+        }
+
+        .services-section p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px 20px;
+            max-width: 300px;
+            width: 100%;
+            color: #e0f2fe;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, #38bdf8 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .card:hover::before {
+            opacity: 0.2;
+        }
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(56, 189, 248, 0.2);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #38bdf8;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .card-desc {
+            font-size: 1rem;
+            color: #cbd5e1;
+        }
+
+        .price-tag {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #facc15;
+            margin: 20px 0 10px;
+        }
+
+        .chat-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            backdrop-filter: blur(10px);
+            color: #bbf7d0;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(34, 197, 94, 0.2);
+        }
+
+        .chat-button:hover {
+            background: #22c55e;
+            color: #fff;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.5);
+        }
+
+        .email-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            backdrop-filter: blur(10px);
+            color: #bfdbfe;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .email-button:hover {
+            background: #3b82f6;
+            color: #fff;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .services-section h1 {
+                font-size: 2.2rem;
+            }
+
+            .cards-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="services-section">
+        <h1>Specialized Services Just for You</h1>
+        <p>We offer top-notch digital solutions to help grow your brand online.</p>
+
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <div class="card-title">Web Site Design</div>
+                <div class="card-desc">We craft beautiful, responsive websites that capture your brand's essence and
+                    engage your audience effectively.</div>
+                <div class="price-tag">₹10,000</div>
+                <div style="margin-top: 20px;">
+                    <a href="https://wa.me/918788209773" target="_blank" class="chat-button">💬 Contact</a>
+                </div>
+                <br>
+                <div style="margin-top: 15px;">
+                    <a href="https://himanshufullstackdeveloper.github.io/rupal_cafe/#home" class="email-button">📧 Demo</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎨</div>
+                <div class="card-title">Creative UI/UX</div>
+                <div class="card-desc">We design sleek, modern interfaces that boost engagement and reflect your brand
+                    identity.</div>
+                <div class="price-tag">₹3000</div>
+                <div style="margin-top: 20px;">
+                    <a href="https://wa.me/918788209773" target="_blank" class="chat-button">💬 Contact</a>
+                </div>
+                <br>
+                <div style="margin-top: 15px;">
+                    <a href="https://docs.google.com/spreadsheets/d/1bS7F44GdOT9cGpAjjWASe3EZBFXl0--rc-o7SpREKOY/edit?gid=0#gid=0" class="email-button">📧 Demo</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🛠️</div>
+                <div class="card-title">Tech Support</div>
+                <div class="card-desc">Ongoing website updates, security monitoring, and tech support from our expert
+                    team.</div>
+                <div class="price-tag">₹1000</div>
+
+                <div style="margin-top: 20px;">
+                    <a href="https://wa.me/918788209773" target="_blank" class="chat-button">💬 Contact</a>
+                </div>
+                <br>
+                <div style="margin-top: 15px;">
+                    <a href="https://himanshufullstackdeveloper.github.io/udit-muni-naam-saheb/" class="email-button">📧 Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Animate on scroll
+        const cards = document.querySelectorAll('.card');
+
+        const revealOnScroll = () => {
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 60) {
+                    card.classList.add('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    </script>
+
+</body>
+
+</html>
