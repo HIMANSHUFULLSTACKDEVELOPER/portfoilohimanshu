@@ -204,4 +204,13 @@
 })();
 
 
-// skills
+// skills// JS to pause scrolling when hovered
+const scrollingText = document.getElementById('scrollingText');
+
+scrollingText.addEventListener('mouseover', () => {
+  scrollingText.style.animationPlayState = 'paused';
+});
+
+scrollingText.addEventListener('mouseout', () => {
+  scrollingText.style.animationPlayState = 'running';
+});

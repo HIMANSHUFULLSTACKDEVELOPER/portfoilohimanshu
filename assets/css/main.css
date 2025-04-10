@@ -1034,6 +1034,140 @@ section,
     font-size: 18px;
   }
 }
+/* Events Update bar */
+.events-bar {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, #1b1b1d, #2e2e31);
+  color: white;
+  padding: 10px 20px;
+  overflow: hidden;
+  flex-wrap: wrap;
+  position: relative;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Title part */
+.events-title {
+  font-size: 19px;
+  font-weight: bold;
+  margin-right: 30px;
+  flex-shrink: 0;
+  background: black;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  animation: titlePulse 2s infinite alternate;
+}
+
+/* Marquee */
+.events-marquee {
+  position: relative;
+  overflow: hidden;
+  flex-grow: 1;
+  margin-right: 20px;
+}
+
+.scrolling-text {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  animation: scrollText 20s linear infinite;
+}
+
+.scrolling-text span {
+  margin-right: 50px;
+  color: rgb(255, 255, 255);
+  transition: color 0.3s;
+  font: 1em ;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.scrolling-text span:hover {
+  color: #ffcc00;
+  text-shadow: 0 0 10px #ffcc00;
+  transform: scale(1.1);
+}
+
+/* Button */
+.events-button {
+  background: rgb(197, 155, 58);
+  color: #1b1b1d;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 12px;
+  transition: background 0.4s, transform 0.3s;
+}
+
+.events-button:hover {
+  background: linear-gradient(45deg, #ffffff, #ffffff);
+  color: #000000;
+  transform: scale(1.1);
+}
+
+/* Gradient Fade */
+.marquee-fade {
+  position: absolute;
+  color: black;
+  top: 0;
+  right: 20px;
+  width: 80px;
+  height: 100%;
+  background:rgb(197, 155, 58);
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes scrollText {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes titlePulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .events-title {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 22px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .events-marquee {
+    margin-right: 0;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .events-button {
+    width: 100%;
+    padding: 12px;
+    text-align: center;
+  }
+}
 
 /*--------------------------------------------------------------
 # About Section
