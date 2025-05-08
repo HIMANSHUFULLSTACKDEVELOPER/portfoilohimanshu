@@ -5,7 +5,24 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+const status = document.getElementById('status');
+const fill = document.getElementById('progress-bar-fill');
+const loader = document.getElementById('loader');
+const main = document.getElementById('main-content');
 
+let progress = 0;
+const interval = setInterval(() => {
+  if (progress >= 100) {
+    clearInterval(interval);
+    loader.classList.add('hidden');
+    main.style.display = 'block';
+    document.body.style.overflow = 'auto';
+  } else {
+    progress++;
+    status.textContent = `Loading... ${progress}%`;
+    fill.style.width = `${progress}%`;
+  }
+}, 30);
 (function() {
   "use strict";
 
