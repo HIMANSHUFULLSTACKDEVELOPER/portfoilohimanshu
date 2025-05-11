@@ -1333,6 +1333,8 @@ section,
 .about .about-img {
   border: 6px solid color-mix(in srgb, var(--default-color), transparent 80%);
   transition: 0.3s;
+  height: 345px;
+  width: 333px;
 }
 
 .about .about-img:hover {
