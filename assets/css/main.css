@@ -1,55 +1,28 @@
-/**
-* Template Name: Restaurantly
-* Template URL: https://bootstrapmade.com/restaurantly-restaurant-template/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
-/* Fonts */
 :root {
   --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Playfair Display", sans-serif;
   --nav-font: "Poppins", sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root {
   --background-color: #0c0b09;
-  /* Background color for the entire website, including individual sections */
+  
   --default-color: rgba(255, 255, 255, 0.7);
-  /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #ffffff;
-  /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #03e7e3;
-  /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #29261f;
-  /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #0c0b09;
-  /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-}
+   --heading-color: #ffffff;
+  --accent-color: #03e7e3; --surface-color: #29261f;
+   --contrast-color: #0c0b09;
+ }
 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #ffffff;
-  /* The default color of the main navmenu links */
-  --nav-hover-color: #cda45e;
-  /* Applied to main navmenu links when they are hovered over or active */
+   --nav-hover-color:#03e7e3;
   --nav-mobile-background-color: #29261f;
-  /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #29261f;
-  /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #ffffff;
-  /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #cda45e;
-  /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
-}
+  --nav-dropdown-hover-color: #03e7e3;
+ }
 
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
   --background-color: #29261f;
@@ -705,9 +678,7 @@ h6 {
   }
 }
 
-/*--------------------------------------------------------------
-# Global Footer
---------------------------------------------------------------*/
+
 .footer {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -936,18 +907,17 @@ h6 {
   opacity: 1;
 }
 
-/*--------------------------------------------------------------
-# Disable aos animation delay on mobile devices
---------------------------------------------------------------*/
+/*-------
+# Disable ---*/
 @media screen and (max-width: 768px) {
   [data-aos-delay] {
     transition-delay: 0 !important;
   }
 }
 
-/*--------------------------------------------------------------
+/*--------------------
 # Global Page Titles & Breadcrumbs
---------------------------------------------------------------*/
+------------------*/
 .page-title {
   color: var(--default-color);
   background-color: var(--background-color);
@@ -994,9 +964,6 @@ h6 {
   color: color-mix(in srgb, var(--default-color), transparent 50%);
 }
 
-/*--------------------------------------------------------------
-# Global Sections
---------------------------------------------------------------*/
 section,
 .section {
   color: var(--default-color);
@@ -1014,9 +981,6 @@ section,
   }
 }
 
-/*--------------------------------------------------------------
-# Global Section Titles
---------------------------------------------------------------*/
 .section-title {
   padding-bottom: 60px;
   position: relative;
@@ -1333,8 +1297,8 @@ section,
 .about .about-img {
   border: 6px solid color-mix(in srgb, var(--default-color), transparent 80%);
   transition: 0.3s;
-  height: 345px;
-  width: 333px;
+  height: 445px;
+  width: 433px;
 }
 
 .about .about-img:hover {
@@ -1472,7 +1436,7 @@ section,
 }
 
 .card-image {
-    height: 180px;
+    height: 150px;
     background-size: cover;
     background-position: center;
     position: relative;
@@ -1482,7 +1446,7 @@ section,
 
 /* New image hover effect */
 .card-image:hover {
-    transform: scale(1.1) rotate(2deg) !important;
+    transform: scale(1.1)  !important;
     filter: brightness(1.2) contrast(1.1);
     box-shadow: 0 0 25px rgba(0, 207, 207, 0.6) inset;
 }
@@ -1503,8 +1467,7 @@ section,
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><text fill="%2300cfcf" font-family="monospace" font-size="10" x="10" y="15">01001110</text><text fill="%2300cfcf" font-family="monospace" font-size="10" x="40" y="35">10110</text><text fill="%2300cfcf" font-family="monospace" font-size="10" x="70" y="55">01001</text><text fill="%2300cfcf" font-family="monospace" font-size="10" x="100" y="75">10011</text><text fill="%2300cfcf" font-family="monospace" font-size="10" x="130" y="95">01101</text><text fill="%2300cfcf" font-family="monospace" font-size="10" x="160" y="115">10100</text><text fill="%2300cfcf" font-family="monospace" font-size="10" x="190" y="135">01011</text><text fill="%2300cfcf" font-family="monospace" font-size="10" x="220" y="155">10010</text></svg>');
-    opacity: 0.25;
+     opacity: 0.25;
 }
 
 /* Glow effect on hover */
@@ -1541,12 +1504,14 @@ section,
 
 .card-content {
     padding: 1.2rem;
+  
 }
 
 .card-title {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     font-weight: 700;
     margin-bottom: 0.8rem;
+    color: white;
     position: relative;
     padding-bottom: 0.8rem;
 }
@@ -2004,7 +1969,7 @@ section,
 }
 
 .contact-card {
-  background-color: rgba(6, 4, 4, 0.851);
+  background-color: rgb(0, 0, 0);
   width: 280px;
   padding: 30px 20px;
   border-radius: 16px;
@@ -2016,7 +1981,7 @@ section,
 .contact-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-  background-color: #cda45e;
+  background-color: #03e7e3;
 }
 
 .icon {
@@ -2047,7 +2012,7 @@ icon:hover {
 }
 
 .contact-card button {
-  background-color: #7d663e;
+  background-color:#03e7e3;
 
   color: #fff;
   border: none;
