@@ -1735,3 +1735,89 @@ icon:hover {
   background-color: #c09d4d;
   transform: scale(1.05);
 }
+
+
+/* Base Layout */
+.new {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 540px; /* This works on large screens */
+}
+
+/* SEE MORE Button */
+.see-more-btn {
+  background-color: #c8632900;
+  color: white;
+  font-size: 27px;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 33px;
+}
+.see-more-btn:hover {
+  background-color: #66d82900;
+  color: rgb(0, 0, 0);
+
+}
+
+/* Mouse Scroll Indicator */
+.mouse-scroll {
+  width: 54px;
+  height: 89px;
+  border: 2px solid white;
+  border-radius: 25px;
+  position: relative;
+}
+
+.mouse-scroll::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 9px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  animation: scroll-down 1.5s infinite;
+}
+
+@keyframes scroll-down {
+  0% {
+    top: 15px;
+    opacity: 1;
+  }
+  50% {
+    top: 30px;
+    opacity: 0.3;
+  }
+  100% {
+    top: 15px;
+    opacity: 1;
+  }
+}
+
+/* ✅ Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+  .new {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .new {
+    margin-left: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .new {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+}
