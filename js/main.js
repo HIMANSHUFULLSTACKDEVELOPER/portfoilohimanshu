@@ -369,3 +369,9 @@ function showPopup(src) {
 	document.getElementById('certification-popup').style.display = 'none';
   }
 
+   function showTab(id, el) {
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      el.classList.add('active');
+    }

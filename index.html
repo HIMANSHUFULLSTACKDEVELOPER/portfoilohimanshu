@@ -39,13 +39,13 @@
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav nav ml-auto">
 					<li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-					<li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>	
+					<li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
 					<li class="nav-item"><a href="#whatdo" class="nav-link"><span>What I Do</span></a></li>
 
 					<li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
 					<li class="nav-item"><a href="#projects" class="nav-link"><span>Projects</span></a></li>
 					<li class="nav-item"><a href="#certificate" class="nav-link"><span>Achievements</span></a></li>
-					<li class="nav-item"><a href="#Experience" class="nav-link"><span>Experience</span></a></li>
+
 
 					<li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
 				</ul>
@@ -53,12 +53,22 @@
 		</div>
 	</nav>
 	<section id="home-section" class="hero" style="
-  background-image: url('./images/download\ \(1\).png');
+  background-image: url('./images/download (1).png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
+  position: relative;
+  overflow: hidden;
 ">
+		<!-- Lighting effects -->
+		<div class="light-beam"></div>
+		<div class="ambient-lights"></div>
+
+<div class="light-beam"></div>
+		<div class="ambient-lights"></div><div class="light-beam"></div>
+		<div class="ambient-lights"></div>
+
 		<div class="home-slider  owl-carousel">
 			<div class="slider-item ">
 				<div class="overlay"></div>
@@ -71,7 +81,7 @@
 						<div class="one-forth d-flex  align-items-center ftco-animate"
 							data-scrollax=" properties: { translateY: '70%' }">
 							<div class="text">
-								<span class="subheading">Hello!</span>
+								<span class="subheading"></span>
 								<h1 class="mb-4 mt-3">I'm <span>Himanshu Patil</span></h1>
 								<h2 class="mb-4">Full Strack Developer</h2>
 								<p><a href="./projects/servies.html" class="btn btn-primary py-3 px-4">Services</a> <a
@@ -301,6 +311,15 @@
 		</div>
 	</section>
 
+
+
+
+
+
+
+
+
+
 	<br>
 	<section class="ftco-section" id="skills-section">
 		<div class="container">
@@ -392,8 +411,36 @@
 			</div>
 		</div>
 	</section>
-	<br>
 
+
+	<div class="resume-container">
+		<div class="tabs">
+			<div class="tab active" onclick="showTab('education', this)">Education</div>
+			<div class="tab" onclick="showTab('experience', this)">Experience</div>
+		</div>
+
+		<div id="education" class="tab-content active">
+			<div class="entry">
+				<h3>Higher Secondary in Science</h3>
+				<p>Concept Schools</p>
+				<p>2023 – 2025</p>
+			</div>
+			<div class="entry">
+				<h3>Art & Secondary School Certificate (SSC)</h3>
+				<p>Tirupati International Public Schools</p>
+				<p>2022 – 2023</p>
+			</div>
+		</div>
+
+		<div id="experience" class="tab-content">
+			<div class="entry">
+				<h3>Intern – Enjoy Programming Pvt Ltd</h3>
+				<p>23 January 2024 – Present (1 Year 2 Months)</p>
+				<p>Katol, Maharashtra, India</p>
+			</div>
+		</div>
+	</div>
+	<br>
 
 	<br>
 	<!-- project -->
@@ -978,22 +1025,14 @@ live Project Card -->
 		<br>
 		<section class="ftco-section ftco-no-pb" id="resume-section">
 			<div class="container">
-				<div class="row justify-content-center pb-5">
-					<div class="col-md-10 heading-section text-center ftco-animate">
-						<h1 class="big big-2">Education</h1>
-						<h2 class="mb-4">Education</h2>
-						<p>A small river named Duden flows by their place and supplies it with the necessary regelialia.
-							It
-							is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-					</div>
-				</div>
+
 				<div class="row">
 					<div class="col-md-6">
 						<div class="resume-wrap ftco-animate">
-							<span class="date">2023-2025</span>
-							<h2>Higher Secondary in Science
-							</h2>
-							<span class="position">Concept Schools</span>
+							<span class="date">Design. Code. Repeat.
+								Solve Real Problems
+							</span>
+
 
 						</div>
 
@@ -1002,10 +1041,8 @@ live Project Card -->
 
 					<div class="col-md-6">
 						<div class="resume-wrap ftco-animate">
-							<span class="date">2022-2023</span>
-							<h2>Art &amp; Secondary School Certificate
-							</h2>
-							<span class="position">Tirupati International Public Schools</span>
+							<span class="date"> Problems Stay Curious, Stay Sharp Sharps </span>
+
 
 						</div>
 
@@ -1017,80 +1054,7 @@ live Project Card -->
 
 			</div>
 		</section>
-		<!-- 
-
-
-	<section class="ftco-section" id="blog-section">
-		<div class="container">
-			<div class="row justify-content-center mb-5 pb-5">
-				<div class="col-md-7 heading-section text-center ftco-animate">
-					<h1 class="big big-2">Blog</h1>
-					<h2 class="mb-4">Our Blog</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
-				</div>
-			</div>
-			<div class="row d-flex">
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<div class="d-flex align-items-center mb-3 meta">
-								<p class="mb-0">
-									<span class="mr-2">June 21, 2019</span>
-									<a href="#" class="mr-2">Admin</a>
-									<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-								</p>
-							</div>
-							<h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a>
-							</h3>
-							<p>A small river named Duden flows by their place and supplies it with the necessary
-								regelialia.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry justify-content-end">
-						<a href="single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<div class="d-flex align-items-center mb-3 meta">
-								<p class="mb-0">
-									<span class="mr-2">June 21, 2019</span>
-									<a href="#" class="mr-2">Admin</a>
-									<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-								</p>
-							</div>
-							<h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a>
-							</h3>
-							<p>A small river named Duden flows by their place and supplies it with the necessary
-								regelialia.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 d-flex ftco-animate">
-					<div class="blog-entry">
-						<a href="single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
-						</a>
-						<div class="text mt-3 float-right d-block">
-							<div class="d-flex align-items-center mb-3 meta">
-								<p class="mb-0">
-									<span class="mr-2">June 21, 2019</span>
-									<a href="#" class="mr-2">Admin</a>
-									<a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a>
-								</p>
-							</div>
-							<h3 class="heading"><a href="single.html">Why Lead Generation is Key for Business Growth</a>
-							</h3>
-							<p>A small river named Duden flows by their place and supplies it with the necessary
-								regelialia.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section> -->
-
+		<br><br>
 		<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
 			<div class="container">
 				<div class="row d-md-flex align-items-center">
@@ -1130,15 +1094,15 @@ live Project Card -->
 			</div>
 		</section>
 
-		<section id="Experience" class="ftco-section ftco-hireme img margin-top" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVjzyTQWnPR6s5i1-ILXtBTqo5si0REwcOswB6q9CIoNyCCkPrNrXdVh--dvpCURaAQ3I&usqp=CAU)">
+		<section id="Experience" class="ftco-section ftco-hireme img margin-top"
+			style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVjzyTQWnPR6s5i1-ILXtBTqo5si0REwcOswB6q9CIoNyCCkPrNrXdVh--dvpCURaAQ3I&usqp=CAU)">
 			<div class="container">
 				<div class="row justify-content-center">
 					<div class="col-md-7 ftco-animate text-center">
-						<h2>
-							Experience
-							<br>
-							Enjoy Programming Pvt Ltd · Internship
-							23 january 2024 - Present · 1 Year 2 Month Katol, Maharashtra, India </h2>
+						<h2>Chase Your Dreams
+							Learn New Things
+							Stay Focused Always
+						</h2>
 
 						<p class="mb-0"><a href="#contact-section" class="btn btn-primary py-3 px-5">Contact</a></p>
 					</div>

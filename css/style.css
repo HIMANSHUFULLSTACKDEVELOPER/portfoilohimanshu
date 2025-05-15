@@ -14486,3 +14486,136 @@ textarea.form-control {
     box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
   }
 }
+/* ex[per */
+
+ .resume-container {
+      max-width: 800px;
+      margin: auto;
+      background: #1a1a1a;
+      border-radius: 14px;
+      box-shadow: 0 0 30px rgba(255, 189, 57, 0.15);
+      overflow: hidden;
+      animation: fadeIn 1s ease;
+    }
+
+    .tabs {
+      display: flex;
+      background: #111;
+      border-bottom: 2px solid #ffbd3920;
+    }
+
+    .tab {
+      flex: 1;
+      padding: 16px;
+      text-align: center;
+      cursor: pointer;
+      background: #111;
+      color: #bbb;
+      transition: all 0.3s;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .tab:hover,
+    .tab.active {
+      background: #2b2b2b;
+      color: #ffbd39;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 30px;
+      animation: slideFade 0.5s ease;
+    }
+
+    .tab-content.active {
+      display: block;
+      font-size: 22px;
+    }
+
+    .entry {
+      margin-bottom: 24px;
+      padding: 18px;
+      border-left: 4px solid #ffbd39;
+      background: #252525;
+      border-radius: 8px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .entry:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 12px #ffbd3960;
+    }
+
+    .entry h3 {
+      margin: 0 0 6px;
+      color: #ffbd39;
+      font-size: 1.2rem;
+    }
+
+    .entry p {
+      margin: 4px 0;
+      color: #ddd;
+      font-size: 22px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes slideFade {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .tabs {
+        flex-direction: column;
+      }
+    }
+
+    /* home lighting */
+       /* Beam light effect */
+    .light-beam {
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent 30%, rgba(255, 189, 57, 0.3) 50%, transparent 70%);
+      animation: moveBeam 6s linear infinite;
+      z-index: 1;
+      mix-blend-mode: overlay;
+    }
+
+    /* Ambient radial lights */
+    .ambient-lights {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background:
+        radial-gradient(circle at 25% 40%, rgba(255, 189, 57, 0.15), transparent 50%),
+        radial-gradient(circle at 70% 65%, rgba(255, 189, 57, 0.12), transparent 50%);
+      animation: pulseAmbience 5s ease-in-out infinite;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    @keyframes moveBeam {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes pulseAmbience {
+      0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(1.03);
+      }
+    }
