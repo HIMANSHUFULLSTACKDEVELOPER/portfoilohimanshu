@@ -327,6 +327,328 @@
             color: #00f7ff;
         }
         
+        /* Experience Section Styles */
+        .experience-section {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 60px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .container {
+            width: 100%;
+        }
+        
+        .section-title {
+            font-size: 42px;
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #00f7ff, #0099cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            position: relative;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #00f7ff, transparent);
+            animation: underlineGlow 2s ease-in-out infinite;
+        }
+        
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .experience-card {
+            background: linear-gradient(145deg, #1a1a1a, #0f0f0f);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            border: 1px solid rgba(0, 247, 255, 0.2);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        
+        .experience-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00f7ff, #0099cc, #00f7ff);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .experience-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 247, 255, 0.05) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.5s ease;
+        }
+        
+        .experience-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .experience-card:hover::after {
+            transform: scale(1);
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 25px 50px rgba(0, 247, 255, 0.15),
+                0 0 40px rgba(0, 247, 255, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-color: rgba(0, 247, 255, 0.4);
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .company-info {
+            flex: 1;
+        }
+        
+        .job-title {
+            font-size: 28px;
+            color: #00f7ff;
+            font-weight: 600;
+            margin-bottom: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .experience-card:hover .job-title {
+            text-shadow: 0 0 15px rgba(0, 247, 255, 0.6);
+            transform: scale(1.02);
+        }
+        
+        .company-name {
+            font-size: 20px;
+            color: #e0e0e0;
+            font-weight: 500;
+            margin-bottom: 0;
+            transition: color 0.3s ease;
+        }
+        
+        .experience-card:hover .company-name {
+            color: #f0f0f0;
+        }
+        
+        .experience-badge {
+            display: flex;
+            align-items: center;
+        }
+        
+        .status-badge {
+            background: linear-gradient(135deg, #00f7ff, #0099cc);
+            color: #000;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulse 2s ease-in-out infinite;
+            box-shadow: 0 4px 15px rgba(0, 247, 255, 0.3);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 4px 15px rgba(0, 247, 255, 0.3); }
+            50% { box-shadow: 0 6px 25px rgba(0, 247, 255, 0.5); }
+        }
+        
+        .experience-details {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .duration {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .date-range {
+            font-size: 16px;
+            color: #00f7ff;
+            font-weight: 500;
+        }
+        
+        .total-duration {
+            font-size: 14px;
+            color: #aaa;
+            font-weight: 400;
+        }
+        
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 25px;
+            color: #ccc;
+            font-size: 15px;
+        }
+        
+        .location-icon {
+            font-size: 16px;
+        }
+        
+        .skills-section {
+            margin-bottom: 25px;
+        }
+        
+        .skills-title {
+            font-size: 16px;
+            color: #00f7ff;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .skill-tag {
+            background: linear-gradient(135deg, rgba(0, 247, 255, 0.1), rgba(0, 247, 255, 0.05));
+            color: #00f7ff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid rgba(0, 247, 255, 0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+        
+        .skill-tag:hover {
+            background: linear-gradient(135deg, rgba(0, 247, 255, 0.2), rgba(0, 247, 255, 0.1));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 247, 255, 0.2);
+            border-color: rgba(0, 247, 255, 0.5);
+        }
+        
+        .experience-description {
+            margin-top: 20px;
+        }
+        
+        .experience-description p {
+            color: #ccc;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+        
+        .experience-card:hover .experience-description p {
+            color: #e0e0e0;
+        }
+        
+        .experience-timeline-line {
+            position: absolute;
+            left: -30px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, #00f7ff, #0099cc);
+            border-radius: 2px;
+            opacity: 0.6;
+        }
+        
+        .experience-timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -6px;
+            width: 16px;
+            height: 16px;
+            background: #00f7ff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(0, 247, 255, 0.3);
+            animation: timelinePulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes timelinePulse {
+            0%, 100% { box-shadow: 0 0 0 4px rgba(0, 247, 255, 0.3); }
+            50% { box-shadow: 0 0 0 8px rgba(0, 247, 255, 0.1); }
+        }
+        
+        /* Mobile Responsiveness for Experience Section */
+        @media (max-width: 768px) {
+            .experience-section {
+                padding: 40px 15px;
+                margin-top: 60px;
+            }
+            
+            .section-title {
+                font-size: 32px;
+                margin-bottom: 40px;
+            }
+            
+            .experience-card {
+                padding: 30px 20px;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .job-title {
+                font-size: 24px;
+            }
+            
+            .company-name {
+                font-size: 18px;
+            }
+            
+            .skills-grid {
+                gap: 8px;
+            }
+            
+            .skill-tag {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+            
+            .experience-timeline-line {
+                display: none;
+            }
+        }
+        
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .services-section {
@@ -424,39 +746,60 @@
     <div class="particle"></div>
     <div class="particle"></div>
     <div class="particle"></div>
-    
-    <section class="services-section">
-        <h1>Our Services</h1>
-        <p>Professional solutions to build, test, and design your digital presence with cutting-edge technology and creative excellence.</p>
-        
-        <div class="button-group">
+    <div>
+
+    </div>
+
+    <br><br><br>
+     <div class="button-group">
             <a href="../index.html" class="btn">← Back to Home</a>
             <a href="tel:+918788209773" class="btn">📱 Call Me: 8788209773</a>
         </div>
-        
-        <div class="services-grid">
-            <div class="service-card animate-on-scroll">
-                <h3>🌐 Web Development</h3>
-                <p>We build fast, responsive, and secure websites with the latest technologies including React, Node.js, and modern frameworks.</p>
-                <div class="price">Starting from ₹1200</div>
-            </div>
-            
-            <div class="service-card animate-on-scroll">
-                <h3>🎨 UI/UX Design</h3>
-                <p>We craft intuitive, beautiful interfaces for web and mobile platforms that enhance user experience and drive engagement.</p>
-                <div class="price">Starting from ₹1200</div>
-            </div>
-            
-            <div class="service-card animate-on-scroll">
-                <h3>🧪 Website Testing</h3>
-                <p>We test functionality, speed, and security to ensure flawless performance across all devices and browsers.</p>
-                <div class="price">Starting from ₹1000</div>
-            </div>
-            
-            <div class="service-card animate-on-scroll">
-                <h3>🖥️ Website Design</h3>
-                <p>We create stunning designs that represent your brand and engage users with modern aesthetics and functionality.</p>
-                <div class="price">Starting from ₹1100</div>
+
+    <!-- Experience Section -->
+    <section class="experience-section">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-card animate-on-scroll">
+                    <div class="experience-header">
+                        <div class="company-info">
+                            <h3 class="job-title">Internship</h3>
+                            <h4 class="company-name">🚀 Enjoy Programming Pvt Ltd</h4>
+                        </div>
+                        <div class="experience-badge">
+                            <span class="status-badge">Current</span>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-details">
+                        <div class="duration">
+                            <span class="date-range">23 January 2024 - Present</span>
+                            <span class="total-duration">1 Year 2 Months</span>
+                        </div>
+                        
+                        <div class="location">
+                            <span class="location-icon">📍</span>
+                            <span class="location-text">Katol, Maharashtra, India · On-site</span>
+                        </div>
+                        
+                        <div class="skills-section">
+                            <h5 class="skills-title">Key Skills & Technologies:</h5>
+                            <div class="skills-grid">
+                                <div class="skill-tag">🧪 Manual Testing</div>
+                                <div class="skill-tag">📱 Responsive Web Design</div>
+                                <div class="skill-tag">💻 Frontend Development</div>
+                                <div class="skill-tag">🎨 UI/UX Design</div>
+                            </div>
+                        </div>
+                        
+                        <div class="experience-description">
+                            <p>Currently working as an intern, gaining hands-on experience in manual testing and responsive web design. Contributing to various projects while developing expertise in modern web technologies and quality assurance practices.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="experience-timeline-line"></div>
+                </div>
             </div>
         </div>
     </section>

@@ -13,7 +13,7 @@
     }
     
     :root {
-      --primary-gradient: linear-gradient(135deg, #FF5722, #FFC107);
+      --primary-gradient: linear-gradient(135deg, #2e5a93, #342c4f);
       --secondary-gradient: linear-gradient(135deg, #f9fcff, #f3f8fc);
       --card-bg: rgba(255, 255, 255, 0.9);
       --text-primary: #0a0a23;
@@ -580,6 +580,21 @@
         padding: 1rem;
       }
     }
+    .back-button {
+      padding: 12px 24px;
+      font-size: 18px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
@@ -619,8 +634,8 @@
       <div class="filter-buttons">
         <button class="filter-btn active" data-filter="all">All</button>
         <button class="filter-btn" data-filter="development">Development</button>
-        <button class="filter-btn" data-filter="data">Data Science</button>
-        <button class="filter-btn" data-filter="design">Design</button>
+        <button class="filter-btn" data-filter="data">Education</button>
+        <button class="filter-btn" data-filter="design">Sport</button>
       </div>
     </div>
   </div>
@@ -658,6 +673,11 @@
     </div>
   </div>
   
+
+     
+
+
+
   <footer>
     <div class="footer-content">
       <p class="footer-text">&copy; 2025 Achievement Gallery | Built with ❤️ and dedication</p>
@@ -689,6 +709,9 @@
           </svg>
         </a>
       </div>
+ <br><br>
+      <a href="../index.html" class="back-button">Back to Home</a>
+
     </div>
   </footer>
   
@@ -701,64 +724,65 @@
         category: 'development',
         date: 'June 15, 2024',
         description: 'Certified by Enjoy Programming for completing comprehensive training in modern full-stack development including HTML, CSS, JavaScript, React, Node.js, and database technologies.',
-        imageUrl: 'assets/img/project img/EP2024010.jpg',
+        imageUrl: '../assets/img/project img/EP2024010.jpg',
+        issuer: 'Enjoy Programming',
+        isNew: true,
+        stars: 5
+      },
+       {
+        id: 'EP2024010',
+        title: 'SQL , NODE JS  ',
+        category: 'development',
+        date: 'March 15, 2025',
+        description: 'Certified by Enjoy Programming for completing comprehensive training in modern full-stack development including HTML, CSS, JavaScript, React, Node.js, and database technologies.',
+        imageUrl: 'https://img.freepik.com/free-vector/hand-holding-winner-trophy-cup-award_1284-13588.jpg?semt=ais_hybrid&w=740',
         issuer: 'Enjoy Programming',
         isNew: true,
         stars: 5
       },
       {
         id: 'EP2024011',
-        title: 'Data Science Bootcamp',
+        title: 'competition',
         category: 'data',
-        date: 'April 2, 2024',
+        date: 'April 2, 2022',
         description: 'Completed with distinction an intensive data science program focusing on statistical analysis, machine learning, Python, and data visualization techniques.',
-        imageUrl: '/api/placeholder/400/300',
-        issuer: 'Data Science Institute',
+        imageUrl: '../assets/img/gallery/ce1 (1).jpg',
+        issuer: '../Data Science Institute',
         isNew: false,
         stars: 5
       },
       {
         id: 'EP2024012',
-        title: 'UI/UX Design Workshop',
+        title: 'Running',
         category: 'design',
-        date: 'March 18, 2024',
+        date: 'Feb 25, 2018',
         description: 'Attended the Creative Minds Workshop focusing on modern user interface design principles, user experience methodologies, prototyping, and design thinking.',
-        imageUrl: '/api/placeholder/400/300',
+        imageUrl: '../assets/img/gallery/ce3.jpg',
         issuer: 'Creative Minds',
         isNew: false,
         stars: 4
       },
-      {
-        id: 'EP2024013',
-        title: 'Advanced JavaScript Masterclass',
-        category: 'development',
-        date: 'February 10, 2024',
-        description: 'Mastered advanced JavaScript concepts including asynchronous programming, design patterns, functional programming, and modern ES6+ features.',
-        imageUrl: '/api/placeholder/400/300',
-        issuer: 'JavaScript Academy',
-        isNew: false,
-        stars: 5
-      },
+     
       {
         id: 'EP2024014',
-        title: 'Machine Learning Specialization',
+        title: 'science Exhibition',
         category: 'data',
-        date: 'January 25, 2024',
+        date: 'December 03, 2019',
         description: 'Specialized training in machine learning algorithms, neural networks, deep learning, and practical applications of AI in solving real-world problems.',
-        imageUrl: '/api/placeholder/400/300',
+        imageUrl: '../assets/img/gallery/ce2.jpg',
         issuer: 'AI Research Institute',
         isNew: false,
         stars: 4
       },
       {
         id: 'EP2024015',
-        title: 'Responsive Web Design',
+        title: 'volleyball ',
         category: 'design',
-        date: 'May 8, 2024',
+        date: 'May 8, 2023',
         description: 'Comprehensive training in creating responsive, mobile-first websites using modern CSS techniques, flexbox, grid layouts, and media queries.',
-        imageUrl: '/api/placeholder/400/300',
+        imageUrl: 'https://img.freepik.com/free-vector/hand-holding-winner-trophy-cup-award_1284-13588.jpg?semt=ais_hybrid&w=740',
         issuer: 'Web Design Academy',
-        isNew: true,
+        isNew: false,
         stars: 5
       }
     ];
