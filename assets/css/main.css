@@ -1980,8 +1980,10 @@ section,
 
 .contact-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-  background-color: #03e7e3;
+  box-shadow: 0 12px 25px#03e7e3ea;
+  background-color: #03e7e3ea;
+ 
+
 }
 
 .icon {
@@ -1992,7 +1994,7 @@ section,
 
 icon:hover {
   transform: translateY(-16px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 25px #03e7e3ea;
 
 }
 
@@ -2004,6 +2006,12 @@ icon:hover {
   color: #f2ecec;
 }
 
+
+
+h3:hover{
+  color: #059652;
+}
+
 .contact-card p {
   font-size: 18px;
   color: #fdfafa;
@@ -2012,7 +2020,7 @@ icon:hover {
 }
 
 .contact-card button {
-  background-color:#03e7e3;
+  background-color:#176bc0;
 
   color: #fff;
   border: none;
@@ -2024,7 +2032,7 @@ icon:hover {
 }
 
 .contact-card button:hover {
-  background-color: #7e34ab;
+  background-color: #36c15b;
   transform: scale(1.05);
 }
 
