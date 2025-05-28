@@ -450,7 +450,7 @@ const interval = setInterval(() => {
         image: "https://www.shutterstock.com/shutterstock/videos/30319135/thumb/11.jpg?ip=x480",
         links: [
           { text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
-          { text: "view project", url: "#projects/name.html" }
+          { text: "view project", url: "projects/name.html" }
         ]
       }
       
