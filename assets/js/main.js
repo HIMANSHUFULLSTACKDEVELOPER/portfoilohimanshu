@@ -453,6 +453,16 @@ const interval = setInterval(() => {
           { text: "view project", url: "projects/name.html" }
         ]
       }
+      ,{
+        title: "light",
+        description: "light on off  we can do a Box Game — from guessing games to interactive ones. Here's a simple version to start with",
+        tags: ["JavaScript", "html", "css"],
+        image: "https://i0.wp.com/www.moretolifetoday.net/wp-content/uploads/2019/01/light-bulb-931979_1920.jpg?fit=1920%2C1367&ssl=1",
+        links: [{ text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
+
+        { text: "View Project", url: "./projects/light.html" }
+        ]
+      }
       
     ],
     languages: [
