@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Light On Off with Animation</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .container.glow {
+      box-shadow: 0 0 40px #ffd700;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 32px;
+    }
+
+    #lightBulb {
+      width: 150px;
+      margin-bottom: 20px;
+      transition: opacity 0.5s ease, transform 0.3s ease;
+    }
+
+    /* Button styles */
+    .btn {
+      padding: 12px 25px;
+      margin: 8px;
+      cursor: pointer;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .on-btn {
+      background-color: #28a745;
+    }
+
+    .on-btn:hover {
+      background-color: #34d058;
+    }
+
+    .off-btn {
+      background-color: #dc3545;
+    }
+
+    .off-btn:hover {
+      background-color: #e55353;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="card">
+    <h1>Light Switch</h1>
+    <img id="lightBulb" src="https://www.w3schools.com/js/pic_bulboff.gif" alt="Bulb">
+    <br>
+    <button class="btn on-btn" onclick="turnOnLight()">ON</button>
+    <button class="btn off-btn" onclick="turnOffLight()">OFF</button>
+  </div>
+
+  <script>
+    const bulb = document.getElementById('lightBulb');
+    const card = document.getElementById('card');
+
+    function turnOnLight() {
+      bulb.style.opacity = 0;
+      setTimeout(() => {
+        bulb.src = 'https://www.w3schools.com/js/pic_bulbon.gif';
+        bulb.style.opacity = 1;
+        card.classList.add('glow');
+      }, 200);
+    }
+
+    function turnOffLight() {
+      bulb.style.opacity = 0;
+      setTimeout(() => {
+        bulb.src = 'https://www.w3schools.com/js/pic_bulboff.gif';
+        bulb.style.opacity = 1;
+        card.classList.remove('glow');
+      }, 200);
+    }
+  </script>
+
+</body>
+</html>
