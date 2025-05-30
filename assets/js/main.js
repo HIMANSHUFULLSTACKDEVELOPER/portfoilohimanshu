@@ -226,6 +226,15 @@ const interval = setInterval(() => {
 
         { text: "View Project", url: "./projects/addorsubnumber.html" }
         ]
+      }, {
+        title: "Light",
+        description: "On Off Light ",
+        tags: ["JavaScript", "Math", "Calculator"],
+        image: "https://www.onlinemathlearning.com/image-files/add-decimals.png",
+        links: [{ text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
+
+        { text: "View Project", url: "./projects/light.html" }
+        ]
       },
       {
         title: "Age Calculator",
@@ -442,6 +451,15 @@ const interval = setInterval(() => {
           { text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
           { text: "view project", url: "projects/weeks.html" }
         ]
+      }, {
+        title: "colors change ",
+        description: "Interactive visualization of sorting and searching algorithms for educational purposes",
+        tags: ["JavaScript", "HTML", "CSS"],
+        image: "https://www.shutterstock.com/shutterstock/videos/140206/thumb/1.jpg",
+        links: [
+          { text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
+          { text: "view project", url: "projects/color.html" }
+        ]
       },
       {
         title: "Students Name",
@@ -451,16 +469,6 @@ const interval = setInterval(() => {
         links: [
           { text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
           { text: "view project", url: "projects/name.html" }
-        ]
-      }
-      ,{
-        title: "light",
-        description: "light on off  we can do a Box Game — from guessing games to interactive ones. Here's a simple version to start with",
-        tags: ["JavaScript", "html", "css"],
-        image: "https://i0.wp.com/www.moretolifetoday.net/wp-content/uploads/2019/01/light-bulb-931979_1920.jpg?fit=1920%2C1367&ssl=1",
-        links: [{ text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
-
-        { text: "View Project", url: "./projects/light.html" }
         ]
       }
       
