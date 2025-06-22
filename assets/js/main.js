@@ -419,13 +419,13 @@ const interval = setInterval(() => {
     ],
     dbms: [
       {
-        title: " comeing Database Schema Designer",
-        description: "Visual tool for designing and managing database schemas and relationships",
-        tags: ["PostgreSQL", "MySQL", "Schema"],
-        image: "https://static.vecteezy.com/system/resources/thumbnails/003/582/701/small_2x/coming-soon-background-illustration-template-design-free-vector.jpg",
+        title: " Anvay Kidz World Designer",
+        description: "Anvay Kidz World shop web site Designe in figma",
+        tags: ["Figma"],
+        image: "https://media.istockphoto.com/id/1499053648/photo/childrens-toy-rack-at-the-store.jpg?s=612x612&w=0&k=20&c=6ydMEA4GQOllbTUauseCi8RlftvFL9S-iWpzrUQh1LA=",
         links: [
-          { text: "View Code", url: "projects/comeingsoon.html" },
-          { text: "view project", url: "projects/comeingsoon.html" }
+          { text: "View Design", url: "https://www.figma.com/design/UXaFBgOnM6CRDQFGlJgJ9q/Untitled?node-id=0-1&t=4ffduiZHOqRPhlyr-1" }
+         
         ]
       }
     ],
