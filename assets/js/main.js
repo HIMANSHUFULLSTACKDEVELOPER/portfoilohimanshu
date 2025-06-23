@@ -534,7 +534,7 @@ const interval = setInterval(() => {
     grid.innerHTML = projectList.map((project, index) => `
                 <div class="project-card" style="animation-delay: ${index * 0.1}s">
                     <div class="project-image" style="background-image: url('${project.image}')">
-                        <div class="project-icon">💻</div>
+                     
                     </div>
                     <div class="project-content">
                         <h3 class="project-title">${project.title}</h3>
