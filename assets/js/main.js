@@ -305,7 +305,10 @@ const interval = setInterval(() => {
         { text: "View Project", url: "./projects/freedomfighter.html" }
         ]
       },
-      {
+      
+      // Live Projects
+     
+    {
         title: "July Calendar",
         description: "commonly referred to as a schedule in American English, is a structured plan that outlines specific times at which events, tasks, or activities are intended to occur.",
         tags: ["CSS", "Table", "Calendar"],
@@ -315,57 +318,7 @@ const interval = setInterval(() => {
         { text: "View Project", url: "./projects/calenders.html" }
         ]
       },
-      // Live Projects
-      {
-        title: "Rupal Cafe",
-        description: "Rupal Cafe Restaurant Live website with responsive design",
-        tags: ["HTML", "CSS", "JavaScript", "Responsive"],
-        image: "https://b.zmtcdn.com/data/pictures/5/20312475/671b4e45b3e1f77a7c3aab131a97534b.jpeg",
-        links: [{ text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
-
-        { text: "View Live", url: "https://himanshufullstackdeveloper.github.io/rupal_cafe/" }
-        ]
-      },
-      {
-        title: "Udit Muni Naam Saheb",
-        description: "Spiritual website for Udit Muni Naam Saheb with responsive design",
-        tags: ["HTML", "CSS", "JavaScript", "Responsive"],
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHOfwbkNLrOIgE5uI5my1PJsa35RRWjTJcXA&s",
-        links: [{ text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
-
-        { text: "View Live", url: "https://himanshufullstackdeveloper.github.io/udit-muni-naam-saheb/" }
-        ]
-      },
-      {
-        title: "StyleShop",
-        description: "Responsive Web site for online shopping for home decor",
-        tags: ["HTML", "CSS", "JavaScript", "E-commerce"],
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUS6Y6RcxQ5tCL7al3frX7bSyYMggW7j_yBMFGXQA5a8UyzFHZyPb7cIk-cClIo4R9Yec&usqp=CAU",
-        links: [{ text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
-
-        { text: "View Live", url: "https://himanshufullstackdeveloper.github.io/styleshop/" }
-        ]
-      },
-      {
-        title: "Satynaam Traders",
-        description: "Responsive Web site for online shopping peanuts",
-        tags: ["HTML", "CSS", "JavaScript", "Business"],
-        image: "https://www.indiafilings.com/learn/wp-content/uploads/2023/02/How-do-I-check-if-a-company-is-in-MCA.jpg",
-        links: [{ text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
-
-        { text: "View Live", url: "https://himanshufullstackdeveloper.github.io/satynaamtraders/" }
-        ]
-      },
-      {
-        title: "Temples",
-        description: "Temple website with spiritual content and beautiful design",
-        tags: ["HTML", "CSS", "JavaScript", "Spiritual"],
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlzBPCA1HkOoJObjeiRyHEVnkgxoJ6psG9FMapHiwmI4Jni3GVZvfUi4FHgi9CZj-pn3Q&usqp=CAU",
-        links: [{ text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
-
-        { text: "View Live", url: "https://himanshufullstackdeveloper.github.io/kabir_kuti_rohana/" }
-        ]
-      }
+     
     ],
     html: [],
     css: [],
