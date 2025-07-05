@@ -1359,9 +1359,7 @@ section,
   padding: 40px 20px;
   position: relative;
   z-index: 2;
-   background: url("https://image.slidesdocs.com/responsive-images/docs/annual-meeting-of-black-enterprise-design-page-border-background-word-template_9b8db386c2__1131_1600.jpg")
-    center center;
-  background-size: cover;
+  background-color: #000;
   position: relative;
 }
 
@@ -1447,14 +1445,14 @@ section,
 
 .projects-grid {
   display: grid;
-  background-color: #262323;
+  background-color: #000000;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
   margin-top: 40px;
 }
 
 .project-card {
- background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1PPfKHnIUrifg3aXGHkl27ZTpS_c8BkDxAtMznWDe0z6KMLYXJNuQ5_H8lM-jPOrsqso&usqp=CAU")
+ background: url("https://plus.unsplash.com/premium_photo-1672940670623-b10bb537e9c6?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBjb2xvcnxlbnwwfHwwfHx8MA%3D%3D")
     center center;
   background-size: cover;
   position: relative;
@@ -2032,10 +2030,7 @@ h3:hover {
             left: 0;
             right: 0;
             bottom: 0;
-            background-image:
-                radial-gradient(circle at 25% 25%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
-            pointer-events: none;
+            background-color: #000;
         }
 
         .himanshulive-container {
@@ -2077,7 +2072,9 @@ h3:hover {
         }
 
         .himanshulive-project-card {
-            background: rgba(20, 20, 20, 0.9);
+         background: url("https://plus.unsplash.com/premium_photo-1672940670623-b10bb537e9c6?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YmxhY2slMjBjb2xvcnxlbnwwfHwwfHx8MA%3D%3D")
+    center center;
+  background-size: cover;
             border-radius: 20px;
             overflow: hidden;
             position: relative;

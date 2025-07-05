@@ -372,12 +372,22 @@ const interval = setInterval(() => {
     ],
     dbms: [
       {
-        title: " Anvay Kidz World Designer",
+        title: " Anvay Kidz World Design",
         description: "Anvay Kidz World shop web site Designe in figma",
         tags: ["Figma"],
         image: "https://media.istockphoto.com/id/1499053648/photo/childrens-toy-rack-at-the-store.jpg?s=612x612&w=0&k=20&c=6ydMEA4GQOllbTUauseCi8RlftvFL9S-iWpzrUQh1LA=",
         links: [
           { text: "View Design", url: "https://www.figma.com/design/UXaFBgOnM6CRDQFGlJgJ9q/Untitled?node-id=0-1&t=4ffduiZHOqRPhlyr-1" }
+         
+        ]
+      },
+      {
+        title: " Yogekar  Dental Clinic Design ",
+        description: "Yogekar  Dental Clinic  web site Designe in figma",
+        tags: ["Figma"],
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUFywOzf2d32zOq9iSBGkZoSA4sfmOU55K_Q&s",
+        links: [
+          { text: "View Design", url: "https://www.figma.com/design/OIpA5spnBx3EfTlwc6Clml/Untitled?node-id=0-1&p=f&t=NZemKGgcf73nIqUc-0" }
          
         ]
       }
