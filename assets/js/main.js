@@ -225,15 +225,6 @@
 
         { text: "View Project", url: "./projects/inputvaleequal.html" }
         ]
-      },{
-        title: "Age Calculator and To Do List",
-        description: "A freedom fighter is an individual who participates in a resistance movement against an oppressive political or social establishment.",
-        tags: ["CSS", "Design", "History"],
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa2et78vllAoReFPPAZjjigUIXGIuo9A3ZZw&s",
-        links: [{ text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
-
-        { text: "View Project", url: "https://himanshufullstackdeveloper.github.io/task1/" }
-        ]
       },
       {
         title: "Match Game",
@@ -265,29 +256,48 @@
 
         { text: "View Project", url: "./projects/freedomfighter.html" }
         ]
-      },{
-        title: "Age Calculator and To Do List",
-        description: "A freedom fighter is an individual who participates in a resistance movement against an oppressive political or social establishment.",
-        tags: ["CSS", "Design", "History"],
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa2et78vllAoReFPPAZjjigUIXGIuo9A3ZZw&s",
-        links: [{ text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
-
-        { text: "View Project", url: "./projects/freedomfighter.html" }
-        ]
       },
       
       // Live Projects
      
     {
-        title: "July Calendar",
-        description: "commonly referred to as a schedule in American English, is a structured plan that outlines specific times at which events, tasks, or activities are intended to occur.",
-        tags: ["CSS", "Table", "Calendar"],
-        image: "https://rukminim3.flixcart.com/image/850/1000/xif0q/calendar/y/w/8/desk-table-calendar-1-2024-table-pixel-original-imah2wfgfrmfhu6t.jpeg?q=90&crop=false",
+        title: "Jogekar-dental-clinic",
+        description: " Temple website featuring spiritual content with beautiful,",
+        tags: ["HTML", "CSS", "JS"],
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUFywOzf2d32zOq9iSBGkZoSA4sfmOU55K_Q&s",
         links: [{ text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
 
-        { text: "View Project", url: "./projects/calenders.html" }
+        { text: "View Project", url: "https://himanshufullstackdeveloper.github.io/Jogekar-dental-Clinic/index.html" }
+        ]
+      }, {
+        title: "Anvay Kidz World",
+        description: " Temple website featuring spiritual content with beautiful,",
+        tags: ["HTML", "CSS", "JS"],
+        image: "https://i.guim.co.uk/img/media/ddd26dbab89d1cf31e9f4a25c9d4d823da76b8d1/0_288_8640_5184/master/8640.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=9fbb68c421f5f8116bbd005844b00159",
+        links: [{ text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
+
+        { text: "View Project", url: "https://anvaykidzworld.katol.in/" }
+        ]
+      }, {
+        title: "StyleShop",
+        description: "  Responsive e-commerce website for online home decor shopping",
+        tags: ["HTML", "CSS", "JS"],
+        image: "https://jumanji.livspace-cdn.com/magazine/wp-content/uploads/sites/2/2021/03/09162827/traditional-indian-home-decor-ideas.jpg",
+        links: [{ text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
+
+        { text: "View Project", url: "https://himanshufullstackdeveloper.github.io/styleshop/" }
+        ]
+      }, {
+        title: "Rupal Cafe",
+        description: " Restaurant Live website with responsive design",
+        tags: ["HTML", "CSS", "JS"],
+        image: "https://b.zmtcdn.com/data/pictures/5/20312475/671b4e45b3e1f77a7c3aab131a97534b.jpeg",
+        links: [{ text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
+
+        { text: "View Project", url: "https://himanshufullstackdeveloper.github.io/rupal_cafe/" }
         ]
       },
+     
      
     ],
     html: [],
