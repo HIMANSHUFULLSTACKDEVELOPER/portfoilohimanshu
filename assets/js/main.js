@@ -276,7 +276,7 @@
         image: "https://i.guim.co.uk/img/media/ddd26dbab89d1cf31e9f4a25c9d4d823da76b8d1/0_288_8640_5184/master/8640.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=9fbb68c421f5f8116bbd005844b00159",
         links: [{ text: "View Code", url: "https://github.com/HIMANSHUFULLSTACKDEVELOPER/portfoilohimanshu/blob/main/projects/ages.css" },
 
-        { text: "View Project", url: "https://anvaykidzworld.katol.in/" }
+        { text: "View Project", url: " https://himanshufullstackdeveloper.github.io/Anvay-Kidz-Worlds/" }
         ]
       }, {
         title: "StyleShop",
