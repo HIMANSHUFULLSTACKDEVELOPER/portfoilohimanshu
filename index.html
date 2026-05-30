@@ -1,760 +1,1318 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Himanshu Patil - Full Stack Developer</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/index.css">
-       <!-- icons -->
-    <link rel="icon" href="assets/img/himpat (2)(1)2.png" type="image/x-icon" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Himanshu Patil — Full Stack Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<style>
+/* ─── TOKENS ─────────────────────────────────────── */
+:root{
+  --ink:#0a0a12;
+  --ink2:#12121e;
+  --ink3:#1a1a2e;
+  --gold:#f5a623;
+  --gold2:#ffd166;
+  --gold3:#c97b0a;
+  --cream:#f8f3e8;
+  --silver:#c8ccd8;
+  --dim:#6b7090;
+  --green:#00d4aa;
+  --red:#ff4d6d;
+  --card:rgba(255,255,255,0.035);
+  --border:rgba(245,166,35,0.18);
+  --border2:rgba(255,255,255,0.07);
+  --glow:rgba(245,166,35,0.15);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--ink);
+  color:var(--cream);
+  overflow-x:hidden;
+  cursor:none;
+}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--ink);}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;}
 
+/* ─── CURSOR ──────────────────────────────────────── */
+#cur{
+  position:fixed;width:10px;height:10px;
+  background:var(--gold);border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:width .25s,height .25s,background .25s;
+  mix-blend-mode:difference;
+}
+#cur2{
+  position:fixed;width:40px;height:40px;
+  border:1.5px solid rgba(245,166,35,.5);border-radius:50%;
+  pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);
+  transition:width .4s cubic-bezier(.2,.8,.2,1),height .4s cubic-bezier(.2,.8,.2,1),opacity .3s;
+}
+body.hovering #cur{width:6px;height:6px;}
+body.hovering #cur2{width:60px;height:60px;border-color:var(--gold);opacity:.4;}
+
+/* ─── CANVAS BG ───────────────────────────────────── */
+#bgCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55;}
+
+/* ─── NAV ─────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.4rem 5rem;
+  background:rgba(10,10,18,0);
+  border-bottom:1px solid transparent;
+  transition:all .5s;
+}
+nav.solid{
+  background:rgba(10,10,18,.92);
+  border-color:var(--border);
+  backdrop-filter:blur(24px);
+  padding:1rem 5rem;
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;font-weight:700;
+  color:var(--gold);text-decoration:none;letter-spacing:-.02em;
+}
+.nav-logo em{color:var(--cream);font-style:normal;}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{
+  color:var(--dim);text-decoration:none;
+  font-size:.82rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  position:relative;transition:color .3s;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:0;bottom:-4px;
+  width:0;height:1px;background:var(--gold);transition:width .35s;
+}
+.nav-links a:hover{color:var(--gold);}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{
+  background:var(--gold);color:var(--ink);
+  font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:.55rem 1.4rem;border-radius:4px;text-decoration:none;
+  transition:all .3s;
+}
+.nav-cta:hover{background:var(--gold2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(245,166,35,.35);}
+
+/* ─── HERO ────────────────────────────────────────── */
+#hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:0 5rem;
+  position:relative;overflow:hidden;
+  gap:4rem;
+}
+
+/* HERO BG DECOR */
+.hero-ring{
+  position:absolute;border-radius:50%;
+  border:1px solid rgba(245,166,35,.08);
+  pointer-events:none;
+}
+.ring1{width:800px;height:800px;top:50%;right:-200px;transform:translateY(-50%);}
+.ring2{width:600px;height:600px;top:50%;right:-100px;transform:translateY(-50%);border-color:rgba(245,166,35,.05);}
+.ring3{width:400px;height:400px;top:50%;right:0;transform:translateY(-50%);border-color:rgba(245,166,35,.04);}
+
+.hero-left{position:relative;z-index:2;}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:.7rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:2rem;
+  opacity:0;animation:fadeUp .8s .3s ease forwards;
+}
+.eyebrow-line{width:28px;height:1px;background:var(--gold);}
+.blink-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 8px var(--green);
+  animation:blink 1.4s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
+
+/* SPLIT TEXT HERO NAME */
+.hero-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(3.5rem,6vw,5.5rem);
+  font-weight:700;line-height:1.05;
+  letter-spacing:-.03em;
+  margin-bottom:.6rem;
+  overflow:hidden;
+}
+.hero-name .line{display:block;overflow:hidden;}
+.hero-name .line span{
+  display:block;
+  animation:slideUp .9s cubic-bezier(.2,.8,.2,1) both;
+}
+.hero-name .line:nth-child(1) span{animation-delay:.45s;}
+.hero-name .line:nth-child(2) span{animation-delay:.6s;}
+.hero-name .gold-text{color:var(--gold);}
+.hero-name .stroke-text{
+  -webkit-text-stroke:1px var(--gold);
+  color:transparent;
+}
+
+/* TYPING TEXT */
+.hero-role{
+  display:flex;align-items:center;gap:.8rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:1rem;color:var(--silver);
+  margin:1.5rem 0 2rem;
+  opacity:0;animation:fadeUp .8s .9s ease forwards;
+}
+.role-bracket{color:var(--gold);font-size:1.2rem;}
+#typeText{color:var(--gold2);}
+.cursor-blink{
+  display:inline-block;width:2px;height:1.1em;
+  background:var(--gold);margin-left:2px;vertical-align:middle;
+  animation:cursorBlink .7s step-end infinite;
+}
+@keyframes cursorBlink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+.hero-desc{
+  font-size:1.05rem;line-height:1.85;color:var(--dim);
+  max-width:520px;margin-bottom:2.5rem;
+  opacity:0;animation:fadeUp .8s 1.05s ease forwards;
+}
+
+.hero-buttons{
+  display:flex;gap:1rem;flex-wrap:wrap;
+  opacity:0;animation:fadeUp .8s 1.2s ease forwards;
+}
+.btn-gold{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:linear-gradient(135deg,var(--gold),var(--gold3));
+  color:var(--ink);font-weight:700;font-size:.88rem;
+  padding:.9rem 2rem;border-radius:6px;text-decoration:none;
+  letter-spacing:.04em;transition:all .35s;position:relative;overflow:hidden;
+}
+.btn-gold::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.4) 50%,transparent 70%);
+  transform:translateX(-100%);transition:transform .5s;
+}
+.btn-gold:hover::before{transform:translateX(100%);}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(245,166,35,.4);}
+.btn-ghost{
+  display:inline-flex;align-items:center;gap:.6rem;
+  border:1px solid var(--border);color:var(--cream);
+  font-size:.88rem;padding:.9rem 2rem;border-radius:6px;
+  text-decoration:none;letter-spacing:.04em;transition:all .35s;
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-3px);}
+
+/* HERO STATS ROW */
+.hero-stats{
+  display:flex;gap:3rem;margin-top:3.5rem;padding-top:2.5rem;
+  border-top:1px solid var(--border2);
+  opacity:0;animation:fadeUp .8s 1.35s ease forwards;
+}
+.hstat-num{
+  font-family:'Cormorant Garamond',serif;font-size:2.8rem;
+  font-weight:700;color:var(--gold);line-height:1;
+}
+.hstat-lbl{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-top:.35rem;}
+
+/* HERO RIGHT — PROFILE VISUAL */
+.hero-right{
+  position:relative;z-index:2;display:flex;justify-content:center;align-items:center;
+  opacity:0;animation:fadeRight 1s .6s ease forwards;
+}
+@keyframes fadeRight{from{opacity:0;transform:translateX(40px);}to{opacity:1;transform:none;}}
+
+.profile-stage{position:relative;width:420px;height:520px;}
+
+/* OUTER SPINNING RING */
+.spin-ring{
+  position:absolute;inset:-30px;border-radius:50%;
+  border:1px dashed rgba(245,166,35,.25);
+  animation:spinSlow 30s linear infinite;
+}
+.spin-ring2{
+  position:absolute;inset:-15px;border-radius:50%;
+  border:1px solid rgba(245,166,35,.08);
+  animation:spinSlow 20s linear infinite reverse;
+}
+@keyframes spinSlow{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+/* DOT ORBIT */
+.orbit-dot{
+  position:absolute;width:8px;height:8px;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 12px var(--gold);top:50%;left:50%;
+  transform-origin:0 0;
+}
+
+/* PROFILE CARD */
+.profile-card-wrap{
+  position:absolute;inset:0;border-radius:28px;overflow:hidden;
+  background:linear-gradient(145deg,var(--ink3),var(--ink2));
+  border:1px solid var(--border);
+  box-shadow:0 40px 100px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05);
+}
+.profile-card-wrap img{
+  width:100%;height:100%;object-fit:cover;object-position:top center;
+  border-radius:28px;
+  filter:brightness(.95) contrast(1.05);
+}
+/* Fallback avatar when img not found */
+.profile-fallback{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:1rem;
+  background:linear-gradient(145deg,var(--ink3),var(--ink2));
+}
+.avatar-circle{
+  width:160px;height:160px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold3));
+  display:flex;align-items:center;justify-content:center;
+  font-size:4rem;color:var(--ink);
+  box-shadow:0 20px 60px rgba(245,166,35,.4);
+  position:relative;overflow:hidden;
+}
+.avatar-circle::after{
+  content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:linear-gradient(45deg,transparent,rgba(255,255,255,.2),transparent);
+  transform:rotate(45deg);animation:shimmer 3s infinite;
+}
+@keyframes shimmer{0%{transform:translateX(-100%) translateY(-100%) rotate(45deg);}100%{transform:translateX(100%) translateY(100%) rotate(45deg);}}
+.profile-name-tag{
+  font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;
+  color:var(--cream);text-align:center;
+}
+.profile-sub{font-size:.8rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;}
+
+/* PROFILE OVERLAY GRADIENT */
+.profile-card-wrap::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 50%,rgba(10,10,18,.9) 100%);
+  border-radius:28px;
+}
+.profile-bottom{
+  position:absolute;bottom:0;left:0;right:0;z-index:2;
+  padding:1.5rem;text-align:center;
+}
+.profile-bottom h3{
+  font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--cream);
+}
+.profile-bottom p{font-size:.78rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;}
+
+/* FLOATING BADGES */
+.fbadge{
+  position:absolute;z-index:3;
+  background:rgba(10,10,18,.9);border:1px solid var(--border);
+  backdrop-filter:blur(20px);border-radius:12px;padding:.7rem 1rem;
+  display:flex;align-items:center;gap:.6rem;
+  box-shadow:0 10px 40px rgba(0,0,0,.5);
+  animation:floatBadge 4s ease-in-out infinite;
+}
+.fbadge:nth-child(odd){animation-direction:alternate-reverse;}
+@keyframes floatBadge{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.fbadge.b1{top:40px;right:-70px;animation-delay:0s;}
+.fbadge.b2{bottom:120px;left:-70px;animation-delay:1.5s;}
+.fbadge.b3{top:180px;left:-80px;animation-delay:.8s;}
+.fbadge-icon{font-size:1.2rem;}
+.fbadge-text label{font-size:.62rem;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;display:block;}
+.fbadge-text span{font-size:.85rem;color:var(--cream);font-weight:600;}
+
+/* SOCIAL STRIP */
+.social-strip{
+  display:flex;gap:.8rem;margin-top:2.2rem;
+  opacity:0;animation:fadeUp .8s 1.5s ease forwards;
+}
+.soc{
+  width:40px;height:40px;border:1px solid var(--border2);border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--dim);text-decoration:none;font-size:.9rem;
+  transition:all .3s;
+}
+.soc:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-4px) rotate(-5deg);box-shadow:0 8px 24px rgba(245,166,35,.2);}
+
+/* ─── SECTION COMMONS ─────────────────────────────── */
+section{padding:8rem 5rem;position:relative;}
+.sec-label{
+  font-family:'JetBrains Mono',monospace;font-size:.7rem;
+  letter-spacing:.25em;text-transform:uppercase;color:var(--gold);
+  display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;
+}
+.sec-label::before{content:'';width:32px;height:1px;background:var(--gold);}
+.sec-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,4vw,4rem);font-weight:700;
+  line-height:1.08;letter-spacing:-.02em;color:var(--cream);
+  margin-bottom:1rem;
+}
+.sec-title .g{color:var(--gold);}
+.sec-title .stroke{-webkit-text-stroke:1px rgba(245,166,35,.5);color:transparent;}
+
+/* REVEAL ON SCROLL */
+.reveal{opacity:0;transform:translateY(50px);transition:opacity .8s ease,transform .8s ease;}
+.reveal.in{opacity:1;transform:none;}
+.reveal-left{opacity:0;transform:translateX(-50px);transition:opacity .8s ease,transform .8s ease;}
+.reveal-left.in{opacity:1;transform:none;}
+.reveal-right{opacity:0;transform:translateX(50px);transition:opacity .8s ease,transform .8s ease;}
+.reveal-right.in{opacity:1;transform:none;}
+
+/* ─── ABOUT ───────────────────────────────────────── */
+#about{background:var(--ink2);}
+.about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:6rem;align-items:center;margin-top:5rem;}
+
+.skill-bars{display:flex;flex-direction:column;gap:1.2rem;margin-top:2rem;}
+.skill-bar-item{}
+.skill-bar-top{display:flex;justify-content:space-between;margin-bottom:.5rem;}
+.skill-bar-name{font-size:.82rem;font-weight:600;color:var(--silver);}
+.skill-bar-pct{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:var(--gold);}
+.skill-bar-track{
+  height:3px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden;
+}
+.skill-bar-fill{
+  height:100%;background:linear-gradient(90deg,var(--gold3),var(--gold));
+  border-radius:2px;width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1);
+}
+
+.about-desc{font-size:1rem;line-height:1.9;color:var(--dim);margin-bottom:1.4rem;}
+.tech-cloud{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.8rem;}
+.tech-pill{
+  display:flex;align-items:center;gap:.45rem;
+  background:var(--card);border:1px solid var(--border2);
+  color:var(--silver);font-size:.8rem;padding:.4rem .9rem;border-radius:30px;
+  transition:all .3s;
+}
+.tech-pill i{color:var(--gold);font-size:.78rem;}
+.tech-pill:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+.about-quote{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.3rem;color:var(--silver);line-height:1.6;
+  border-left:2px solid var(--gold);padding-left:1.5rem;
+  margin:2rem 0;
+}
+
+/* ─── SERVICES ────────────────────────────────────── */
+#services{background:var(--ink);}
+.services-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:5rem;}
+.svc-card{
+  background:var(--card);border:1px solid var(--border2);border-radius:20px;
+  padding:2.5rem 2rem;position:relative;overflow:hidden;
+  transition:all .45s cubic-bezier(.2,.8,.2,1);
+}
+.svc-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  transform:scaleX(0);transition:transform .45s;
+}
+.svc-card::after{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(245,166,35,.06) 0%,transparent 70%);
+  opacity:0;transition:opacity .45s;
+}
+.svc-card:hover{transform:translateY(-10px);border-color:rgba(245,166,35,.3);}
+.svc-card:hover::before{transform:scaleX(1);}
+.svc-card:hover::after{opacity:1;}
+.svc-num{
+  font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;
+  color:rgba(245,166,35,.08);line-height:1;margin-bottom:.5rem;
+}
+.svc-icon{
+  width:54px;height:54px;border-radius:12px;
+  background:rgba(245,166,35,.1);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;color:var(--gold);margin-bottom:1.4rem;
+  transition:all .35s;
+}
+.svc-card:hover .svc-icon{background:var(--gold);color:var(--ink);transform:rotate(-8deg) scale(1.1);}
+.svc-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--cream);margin-bottom:.7rem;}
+.svc-card p{color:var(--dim);font-size:.88rem;line-height:1.75;margin-bottom:1.3rem;}
+.svc-features{list-style:none;display:flex;flex-direction:column;gap:.45rem;}
+.svc-features li{font-size:.8rem;color:var(--dim);display:flex;align-items:center;gap:.6rem;}
+.svc-features li::before{content:'';width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;}
+
+/* ─── PROJECTS ────────────────────────────────────── */
+#projects{background:var(--ink2);}
+.proj-filters{display:flex;gap:.7rem;flex-wrap:wrap;margin:3.5rem 0 2.5rem;}
+.pf-btn{
+  border:1px solid var(--border2);background:transparent;color:var(--dim);
+  padding:.45rem 1.2rem;border-radius:30px;font-size:.78rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;
+  transition:all .3s;cursor:none;font-family:'Outfit',sans-serif;
+}
+.pf-btn.on,.pf-btn:hover{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.5rem;}
+
+.proj-card{
+  background:var(--card);border:1px solid var(--border2);
+  border-radius:18px;overflow:hidden;
+  transition:all .4s cubic-bezier(.2,.8,.2,1);
+  position:relative;
+}
+.proj-card:hover{transform:translateY(-8px);border-color:rgba(245,166,35,.35);box-shadow:0 24px 80px rgba(0,0,0,.5);}
+
+.proj-thumb{
+  height:160px;position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--ink3),var(--ink));
+}
+.proj-thumb-icon{font-size:3rem;color:rgba(245,166,35,.15);z-index:1;position:relative;transition:all .4s;}
+.proj-card:hover .proj-thumb-icon{color:rgba(245,166,35,.3);transform:scale(1.1);}
+.proj-thumb-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(245,166,35,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(245,166,35,.04) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+.proj-thumb-glow{
+  position:absolute;width:120px;height:120px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,166,35,.12),transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+.live-tag{
+  position:absolute;top:12px;right:12px;z-index:2;
+  background:rgba(0,212,170,.12);border:1px solid var(--green);
+  color:var(--green);font-size:.62rem;font-family:'JetBrains Mono',monospace;
+  padding:.22rem .65rem;border-radius:20px;
+  display:flex;align-items:center;gap:.4rem;font-weight:700;letter-spacing:.06em;
+}
+.live-tag::before{content:'';width:5px;height:5px;background:var(--green);border-radius:50%;animation:blink 1.4s infinite;}
+
+.proj-body{padding:1.5rem;}
+.proj-body h3{
+  font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;
+  color:var(--cream);margin-bottom:.5rem;
+}
+.proj-body p{color:var(--dim);font-size:.83rem;line-height:1.7;margin-bottom:1.2rem;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.2rem;}
+.ptag{
+  background:rgba(245,166,35,.07);border:1px solid rgba(245,166,35,.18);
+  color:var(--gold);font-size:.66rem;font-family:'JetBrains Mono',monospace;
+  padding:.2rem .6rem;border-radius:20px;font-weight:700;letter-spacing:.04em;
+}
+.proj-acts{display:flex;gap:.7rem;}
+.pa-primary{
+  font-size:.78rem;font-weight:700;padding:.48rem 1rem;border-radius:6px;
+  background:var(--gold);color:var(--ink);text-decoration:none;transition:all .3s;
+}
+.pa-primary:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(245,166,35,.35);}
+.pa-sec{
+  font-size:.78rem;padding:.48rem 1rem;border-radius:6px;
+  border:1px solid var(--border2);color:var(--dim);text-decoration:none;transition:all .3s;
+}
+.pa-sec:hover{border-color:var(--gold);color:var(--gold);}
+
+/* ─── EXPERIENCE ──────────────────────────────────── */
+#experience{background:var(--ink);}
+.exp-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:start;margin-top:5rem;}
+
+/* INTERNSHIP CARD */
+.intern-card{
+  background:linear-gradient(135deg,#0d2b23,#0a1f18);
+  border:1px solid rgba(0,212,170,.2);
+  border-radius:24px;padding:2.8rem;position:relative;overflow:hidden;
+}
+.intern-card::before{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,212,170,.12),transparent 70%);
+  pointer-events:none;
+}
+.intern-header{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;}
+.intern-emoji{font-size:2.2rem;}
+.intern-header h3{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--cream);}
+.intern-header p{font-size:.82rem;color:rgba(0,212,170,.8);margin-top:.1rem;}
+.intern-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;}
+.intern-item{
+  background:rgba(0,212,170,.06);border:1px solid rgba(0,212,170,.15);
+  border-radius:12px;padding:1rem;
+}
+.intern-item label{font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;color:rgba(0,212,170,.6);display:block;margin-bottom:.35rem;}
+.intern-item span{font-size:.88rem;color:var(--cream);font-weight:500;}
+.intern-pills{display:flex;flex-wrap:wrap;gap:.6rem;}
+.ipill{
+  background:rgba(0,212,170,.1);border:1px solid rgba(0,212,170,.2);
+  color:var(--green);font-size:.78rem;padding:.38rem .85rem;border-radius:20px;
+  font-weight:600;transition:all .3s;
+}
+.ipill:hover{background:rgba(0,212,170,.18);transform:translateY(-2px);}
+
+/* STAT CARDS */
+.stat-stack{display:flex;flex-direction:column;gap:1.2rem;}
+.stat-card{
+  display:flex;align-items:center;gap:1.5rem;
+  background:var(--card);border:1px solid var(--border2);
+  border-radius:16px;padding:1.5rem 2rem;
+  transition:all .3s;
+}
+.stat-card:hover{border-color:rgba(245,166,35,.35);transform:translateX(8px);}
+.stat-card-num{
+  font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;
+  color:var(--gold);min-width:90px;line-height:1;
+}
+.stat-card-info label{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--dim);display:block;}
+.stat-card-info span{font-size:.9rem;color:var(--cream);font-weight:500;}
+
+/* CERT CARD */
+.cert-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:1.8rem;display:flex;align-items:center;gap:1.2rem;
+  margin-top:1.2rem;transition:all .3s;
+}
+.cert-card:hover{border-color:var(--gold);transform:translateX(8px);background:rgba(245,166,35,.03);}
+.cert-icon{
+  width:50px;height:50px;border-radius:12px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--gold),var(--gold3));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;color:var(--ink);
+}
+.cert-info label{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--dim);display:block;}
+.cert-info span{font-size:.9rem;color:var(--cream);font-weight:600;}
+.cert-badge{
+  margin-left:auto;background:rgba(245,166,35,.1);border:1px solid var(--border);
+  color:var(--gold);font-size:.68rem;font-family:'JetBrains Mono',monospace;
+  padding:.3rem .7rem;border-radius:20px;font-weight:700;flex-shrink:0;
+}
+
+/* ─── CONTACT ─────────────────────────────────────── */
+#contact{background:var(--ink2);}
+.contact-wrap{max-width:900px;margin:5rem auto 0;}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;}
+.con-card{
+  background:var(--card);border:1px solid var(--border2);border-radius:18px;
+  padding:2rem 1.5rem;text-align:center;
+  transition:all .4s cubic-bezier(.2,.8,.2,1);
+  text-decoration:none;display:block;color:inherit;
+}
+.con-card:hover{border-color:var(--gold);transform:translateY(-8px);background:rgba(245,166,35,.04);}
+.con-icon{
+  width:52px;height:52px;border-radius:12px;
+  background:rgba(245,166,35,.1);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;color:var(--gold);margin:0 auto 1rem;
+  transition:all .35s;
+}
+.con-card:hover .con-icon{background:var(--gold);color:var(--ink);transform:scale(1.1);}
+.con-card h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--dim);margin-bottom:.45rem;}
+.con-card p,.con-card span{font-size:.88rem;color:var(--cream);font-weight:500;}
+
+.contact-cta{
+  text-align:center;margin-top:4rem;
+  padding:3.5rem;background:var(--card);border:1px solid var(--border);
+  border-radius:24px;position:relative;overflow:hidden;
+}
+.contact-cta::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 0%,rgba(245,166,35,.07),transparent 70%);
+}
+.contact-cta h3{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--cream);margin-bottom:.8rem;}
+.contact-cta p{color:var(--dim);margin-bottom:2rem;}
+
+/* ─── FOOTER ──────────────────────────────────────── */
+footer{
+  background:var(--ink);border-top:1px solid var(--border2);
+  padding:2rem 5rem;display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+}
+.foot-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--gold);}
+footer p{font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--dim);}
+
+/* ─── KEYFRAMES ───────────────────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;}}
+@keyframes slideUp{from{opacity:0;transform:translateY(110%);}to{opacity:1;transform:none;}}
+
+/* ─── RESPONSIVE ──────────────────────────────────── */
+@media(max-width:1100px){
+  #hero{grid-template-columns:1fr;padding:7rem 3rem 4rem;gap:4rem;}
+  .hero-right{display:none;}
+  nav,.nav.solid{padding:1.2rem 3rem;}
+  section{padding:6rem 3rem;}
+  .about-grid{grid-template-columns:1fr;gap:3rem;}
+  .exp-layout{grid-template-columns:1fr;gap:3rem;}
+}
+@media(max-width:768px){
+  nav{padding:1rem 2rem;}
+  nav.solid{padding:.8rem 2rem;}
+  .nav-links,.nav-cta{display:none;}
+  section{padding:5rem 1.8rem;}
+  .services-row{grid-template-columns:1fr;}
+  .contact-grid{grid-template-columns:1fr 1fr;}
+  footer{flex-direction:column;text-align:center;padding:1.5rem 2rem;}
+}
+</style>
 </head>
-
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="#home" class="logo">Himanshu Patil</a>
 
-            <div class="nav-center" id="navCenter">
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li class="dropdown">
-                        <a href="#" onclick="toggleDropdown(event)">
-                            <span>More</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </a>
-                        <div class="dropdown-content">
-                            <a href="./projects/experence.html">Experience</a>
-                             <a href="./projects/archiv.html">Certifications</a>
-                           
-                           
-                        </div>
-                    </li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+<!-- CURSOR -->
+<div id="cur"></div>
+<div id="cur2"></div>
 
+<!-- CANVAS PARTICLES -->
+<canvas id="bgCanvas"></canvas>
 
-            </div>
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">Him<em>anshu</em></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:patilhimanshu46875@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
 
+<!-- ══════════════ HERO ══════════════ -->
+<section id="hero">
+  <!-- BG RINGS -->
+  <div class="hero-ring ring1"></div>
+  <div class="hero-ring ring2"></div>
+  <div class="hero-ring ring3"></div>
 
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Himanshu Patil</h1>
-            <div class="hero-subtitle">Full-Stack Developer</div>
-            <p>I turn coffee into code and ideas into beautiful, functional websites — blending creativity with logic to
-                craft full-stack solutions that are fast, responsive, and user-friendly.</p>
-
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number">1+</span>
-                    <span class="stat-label">Years Experience</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">50+</span>
-                    <span class="stat-label">Projects Complete</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number">6+</span>
-                    <span class="stat-label">Live Websites</span>
-                </div>
-            </div>
-
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <div class="profile-card">
-                        <div class="profile-inner">
-                            <div class="profile-avatar">
-                                <img src="./assets/img/himpat (2)(1)2.png" alt="Himanshu Patil"
-                                    style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
-                            </div>
-                            <h3>Himanshu Patil</h3>
-                            <p>Full-Stack Developer</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-text">
-                    <p>Hi, I'm Himanshu Patil! I'm a dedicated Full-Stack Developer who enjoys turning ideas into
-                        reality through code. From designing responsive front-end interfaces to building robust back-end
-                        systems, I love every aspect of web development.</p>
-
-                    <p>With a strong foundation in modern web technologies, I specialize in creating intuitive user
-                        experiences and architecting scalable applications. I thrive on solving complex problems and
-                        continuously learning new technologies to enhance my skill set.</p>
-
-                    <div class="skills-grid">
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fab fa-html5"></i></div>
-                            <h3>Frontend</h3>
-                            <p>HTML, CSS, JavaScript</p>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-server"></i></div>
-                            <h3>Backend</h3>
-                            <p>Node.js, APIs</p>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-icon"><i class="fas fa-database"></i></div>
-                            <h3>Database</h3>
-                            <p>SQL, PostgreSQL</p>
-                        </div>
-                       
-
-                         <div class="project-links">
-                       
-                            <a href="./projects/resume.html" class="project-link primary">Resume</a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title">What I Do</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <h3>Web Development</h3>
-                    <p>Creating responsive and modern websites with clean, efficient code.</p>
-                    <ul class="service-features">
-                        <li>Responsive Design</li>
-                        <li>Performance Optimization</li>
-                        <li>Cross-browser Compatibility</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-vial"></i>
-                    </div>
-                    <h3>Manual Testing</h3>
-                    <p>Ensuring quality through comprehensive testing and validation.</p>
-                    <ul class="service-features">
-                        <li>Test Case Execution</li>
-                        <li>UI/UX Validation</li>
-                        <li>Bug Detection & Reporting</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <h3>Database Management</h3>
-                    <p>Designing and optimizing database solutions for applications.</p>
-                    <ul class="service-features">
-                        <li>Data Management</li>
-                        <li>Performance Optimization</li>
-                        <li>Query Optimization</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="html">HTML / CSS</button>
-                <button class="filter-btn" data-filter="javascript">JavaScript</button>
-                <button class="filter-btn" data-filter="live">Live Projects</button>
-                <button class="filter-btn" data-filter="design">Design Projects</button>
-
-            </div>
-
-
-            <!-- live project -->
-
-
-            <!-- live project -->
-<div class="projects-grid">
-
-    <!-- Project 1 -->
-   
-
-    <!-- Project 2: ERP NIT -->
-    <div class="project-card" data-category="live">
-        <div class="project-image">
-            <i class="fas fa-database"></i>
-        </div> 
-        <div class="project-info">
-            <h3 class="project-title">ERP NIT</h3>
-            <p class="project-description">
-                ERP system developed for Nagpur Institute of Technology with complete academic and administrative management features.
-            </p>
-            <div class="project-tags">
-                <span class="project-tag">PHP</span>
-                <span class="project-tag">HTML</span>
-                <span class="project-tag">CSS</span>
-                <span class="project-tag">JavaScript</span>
-                <span class="project-tag">SQL</span>
-            </div>
-            <div class="project-links">
-                <a href="https://www.nitamms.hp3tech.co.in/" class="project-link primary">View Project</a>
-                <a href="#" class="project-link secondary">View Code</a>
-            </div>
-        </div>
+  <!-- LEFT -->
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-line"></span>
+      <span class="blink-dot"></span>
+      Available for Work · Nagpur, MH
     </div>
 
-    <!-- Project 3: GSMConnect ERP -->
-    <div class="project-card" data-category="live">
-        <div class="project-image">
-            <i class="fas fa-server"></i>
-        </div> 
-        <div class="project-info">
-            <h3 class="project-title">GSMConnect ERP</h3>
-            <p class="project-description">
-                ERP platform for NIT Graduate School of Management handling student, faculty, and academic operations efficiently.
-            </p>
-            <div class="project-tags">
-                <span class="project-tag">PHP</span>
-                <span class="project-tag">HTML</span>
-                <span class="project-tag">CSS</span>
-                <span class="project-tag">JavaScript</span>
-                <span class="project-tag">SQL</span>
-            </div>
-            <div class="project-links">
-                <a href="http://gsmconnect.co.in/" class="project-link primary">View Project</a>
-                <a href="#" class="project-link secondary">View Code</a>
-            </div>
-        </div>
+    <h1 class="hero-name">
+      <span class="line"><span>Himanshu</span></span>
+      <span class="line"><span class="gold-text">Patil<span class="stroke-text">.</span></span></span>
+    </h1>
+
+    <div class="hero-role">
+      <span class="role-bracket">{</span>
+      <span id="typeText"></span><span class="cursor-blink"></span>
+      <span class="role-bracket">}</span>
     </div>
 
-</div>
+    <p class="hero-desc">
+      I turn ideas into beautiful, functional digital products — blending creativity with logic to craft full-stack solutions that are fast, responsive, and unforgettable.
+    </p>
 
-            <div class="projects-grid">
-                <div class="project-card" data-category="live">
-                    <div class="project-image">
-                        <i class="fas fa-laptop"></i>
-                    </div> 
-                    <div class="project-info">
-                        <h3 class="project-title">Jogekar Dental Clinic</h3>
-                        <p class="project-description">Professional dental clinic website with appointment booking
-                            system and service information.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                      
-                            <span class="project-tag">Bootstrap</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://himanshufullstackdeveloper.github.io/Jogekar-dental-Clinic/" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn-gold"><i class="fas fa-layer-group"></i> View My Work</a>
+      <a href="#contact" class="btn-ghost"><i class="fas fa-paper-plane"></i> Let's Talk</a>
+    </div>
 
-                <div class="project-card" data-category="live">
-                    <div class="project-image">
-                      <i class="fas fa-laptop"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Anvay Kidz World</h3>
-                        <p class="project-description">Interactive kids website with educational content and engaging
-                            activities.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                  
-                            <span class="project-tag">Bootstrap</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://himanshufullstackdeveloper.github.io/Anvay-Kidz-Worlds/" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
+    <div class="social-strip">
+      <a href="https://github.com/HIMANSHUFULLSTACKDEVELOPER" class="soc" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/himanshu-patil-1630412b1" class="soc" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      <a href="mailto:patilhimanshu46875@gmail.com" class="soc"><i class="fas fa-envelope"></i></a>
+      <a href="tel:+918788209773" class="soc"><i class="fas fa-phone"></i></a>
+    </div>
 
-                <div class="project-card" data-category="live">
-                    <div class="project-image">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">StyleShop</h3>
-                        <p class="project-description">Responsive e-commerce website for online home decor shopping with
-                            modern design.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                            <span class="project-tag">JavaScript</span>
-                            
+    <div class="hero-stats">
+      <div class="hstat">
+        <div class="hstat-num">1+</div>
+        <div class="hstat-lbl">Years Exp</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">50+</div>
+        <div class="hstat-lbl">Projects</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-num">6+</div>
+        <div class="hstat-lbl">Live Sites</div>
+      </div>
+    </div>
+  </div>
 
-                        </div>
-                        <div class="project-links">
-                            <a href="https://himanshufullstackdeveloper.github.io/styleshop/" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
+  <!-- RIGHT — PROFILE -->
+  <div class="hero-right">
+    <div class="profile-stage">
+      <div class="spin-ring"></div>
+      <div class="spin-ring2"></div>
 
-                <div class="project-card" data-category="live">
-                    <div class="project-image">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Rupal Cafe</h3>
-                        <p class="project-description">Responsive cafe website with menu display, online ordering, and
-                            </p>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                            <span class="project-tag">JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://himanshufullstackdeveloper.github.io/rupal_cafe/" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
+      <!-- Floating Badges -->
+      <div class="fbadge b1">
+        <div class="fbadge-icon">🚀</div>
+        <div class="fbadge-text"><label>Status</label><span>Active Intern</span></div>
+      </div>
+      <div class="fbadge b2">
+        <div class="fbadge-icon">🏆</div>
+        <div class="fbadge-text"><label>Certified</label><span>Level 1</span></div>
+      </div>
+      <div class="fbadge b3">
+        <div class="fbadge-icon">⚡</div>
+        <div class="fbadge-text"><label>Stack</label><span>Full-Stack</span></div>
+      </div>
 
-
-               
-
-
-
-
-               
-
-
-                <!-- javascript project -->
-
-                <div class="project-card" data-category="javascript">
-                    <div class="project-image">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Calculator</h3>
-                        <p class="project-description">Interactive calculator with basic arithmetic operations and clean
-                            interface.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">Functions</span>
-                            <span class="project-tag">Math</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="./projects/calulator.html" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="project-card" data-category="javascript">
-                    <div class="project-image">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Even/Odd</h3>
-                        <p class="project-description">Even numbers are divisible by 2. Odd numbers are not divisible by
-                            2.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="./projects/evenorodd.html" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="project-card" data-category="javascript">
-                    <div class="project-image">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Vowel</h3>
-                        <p class="project-description">Identify and count vowels in a given text input.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="./projects/vowel.html" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="javascript">
-                    <div class="project-image">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">KBC Game</h3>
-                        <p class="project-description">Interactive quiz game inspired by KBC with multiple choice
-                            questions and scoring.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">Quiz</span>
-                            <span class="project-tag">Game</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="./projects/kbcnew.html" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="javascript">
-                    <div class="project-image">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Ticket Booking</h3>
-                        <p class="project-description">A web-based application for booking movie tickets online.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="./projects/ticket.html" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="javascript">
-                    <div class="project-image">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Weeks</h3>
-                        <p class="project-description"></p>There are 7 days in a week. A weekend is usually Saturday and
-                        Sunday</p>
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="./projects/weeks.html" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="javascript">
-                    <div class="project-image">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Electric Bill</h3>
-                        <p class="project-description"></p>Calculate and display the electric bill based on user input.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="./projects/electricbill.html" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="javascript">
-                    <div class="project-image">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Age Calculator</h3>
-                        <p class="project-description"></p>Calculate and display the age based on user input.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="./projects/ages.html" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="javascript">
-                    <div class="project-image">
-                        <i class="fas fa-gamepad"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Match Game</h3>
-                        <p class="project-description"></p>Calculate and display the match game based on user input.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="./projects/match.html" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <!-- HTML CSS project -->
-
-                <div class="project-card" data-category="html">
-                    <div class="project-image">
-                        <i class="fas fa-flag"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Sant Kabir</h3>
-                        <p class="project-description">Sant Kabir Das His writings influenced Hinduism's Bhakti movement
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML</span>
-
-                        </div>
-                        <div class="project-links">
-                            <a href="./projects/kabir saheb.html" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="html">
-                    <div class="project-image">
-                        <i class="fas fa-flag"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Dr. APJ Abdul Kalam</h3>
-                        <p class="project-description">Dr. APJ Abdul Kalam was an Indian aerospace scientist and the
-                            11th President of India.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML</span>
-
-                        </div>
-                        <div class="project-links">
-                            <a href="./projects/ajabualkalam.html" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="html">
-                    <div class="project-image">
-                        <i class="fas fa-flag"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">KGF</h3>
-                        <p class="project-description">KGF is a 2018 Indian Kannada-language period action film written
-                            and directed by Prashanth Neel.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML</span>
-
-                        </div>
-                        <div class="project-links">
-                            <a href="./projects/kgfmovies.html" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="html">
-                    <div class="project-image">
-                        <i class="fas fa-flag"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Indian Flag</h3>
-                        <p class="project-description">The Indian National Flag is a horizontal tricolor of saffron,
-                            white, and green with a blue Ashoka Chakra in the center.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-
-                        </div>
-                        <div class="project-links">
-                            <a href="./projects/flag.html" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="project-card" data-category="html">
-                    <div class="project-image">
-                        <i class="fas fa-flag"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Freedom Fighter</h3>
-                        <p class="project-description">Freedom fighters are individuals who actively work to end
-                            oppression
-                            and achieve political or social change, often at great personal risk.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML </span>
-                            <span class="project-tag">CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="./projects/freedomfighter.html" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="html">
-                    <div class="project-image">
-                        <i class="fas fa-flag"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">FroM</h3>
-                        <p class="project-description">A form is a structured document designed to collect specific
-                            information from individuals in a logical and organized manner.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML </span>
-                            <span class="project-tag">CSS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="./projects/form.html" class="project-link primary">View Project</a>
-                            <a href="#" class="project-link secondary">View Code</a>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="project-card" data-category="design">
-                    <div class="project-image">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Anvay Kidz World Design</h3>
-                        <p class="project-description">Anvay Kidz World shop web site Designe in figma</p>
-                        <div class="project-tags">
-                            <span class="project-tag">figma</span>
-                            <span class="project-tag">design</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://www.figma.com/design/UXaFBgOnM6CRDQFGlJgJ9q/Untitled?node-id=0-1&t=4ffduiZHOqRPhlyr-1"
-                                class="project-link primary">View Design</a>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="design">
-                    <div class="project-image">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Yogekar Dental Clinic Design</h3>
-                        <p class="project-description">Yogekar Dental Clinic website design in Figma</p>
-                        <div class="project-tags">
-                            <span class="project-tag">figma</span>
-                            <span class="project-tag">design</span>
-                            
-                        </div>
-                        <div class="project-links">
-                            <a href="https://www.figma.com/design/OIpA5spnBx3EfTlwc6Clml/Untitled?node-id=0-1&p=f&t=NZemKGgcf73nIqUc-0"
-                                class="project-link primary">View Design</a>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+      <div class="profile-card-wrap">
+        <!-- Profile image — uses your actual asset path -->
+        <img
+          src="./assets/img/himpat (2)(1)2.png"
+          alt="Himanshu Patil"
+          onerror="this.style.display='none'"
+        />
+        <!-- Fallback shown if image missing -->
+        <div class="profile-fallback" id="pfallback">
+          <div class="avatar-circle">👨‍💻</div>
+          <div class="profile-name-tag">Himanshu Patil</div>
+          <div class="profile-sub">Full-Stack Developer</div>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title" style="color: white;">Contact Me</h2>
-            <p style="text-align: center; margin-bottom: 2rem; opacity: 0.9;">Let's connect and build something amazing
-                together!</p>
-
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fab fa-github"></i>
-                    </div>
-                    <h3>GitHub</h3>
-                    <a href="https://github.com/HIMANSHUFULLSTACKDEVELOPER">View GitHub Profile</a>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <h3>Location</h3>
-                    <p>Nagpur, Maharashtra</p>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fab fa-linkedin-in"></i>
-                    </div>
-                    <h3>LinkedIn</h3>
-                    <a href="https://www.linkedin.com/in/himanshu-patil-1630412b1">Connect on LinkedIn</a>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <h3>Call Me</h3>
-                    <a href="tel:+918788209773">+91 8788209773</a>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fab fa-skype"></i>
-                    </div>
-                    <h3>Team</h3>
-                    <a href="">Chat on Skype</a>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h3>Email</h3>
-                    <a style="font-size: 14px;" href="mailto:patilhimanshu46875@gmail.com">patilhimanshu46875@gmail.com</a>
-                </div>
-            </div>
+        <div class="profile-bottom">
+          <h3>Himanshu Patil</h3>
+          <p>Full-Stack Developer</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Himanshu Patil. All rights reserved. Himanshu@Enjoy Programming</p>
+<!-- ══════════════ ABOUT ══════════════ -->
+<section id="about">
+  <div class="sec-label">01 — About Me</div>
+  <h2 class="sec-title reveal">Who I <span class="g">Am</span></h2>
+
+  <div class="about-grid">
+    <div class="reveal-left">
+      <div class="about-quote">"I love turning complex problems into elegant, user-friendly solutions."</div>
+      <p class="about-desc">Hi, I'm Himanshu — a dedicated Full-Stack Developer from Nagpur, Maharashtra. I enjoy turning ideas into reality through clean, efficient code. From designing pixel-perfect interfaces to building robust back-end systems, I love every layer of the stack.</p>
+      <p class="about-desc">Currently interning at <strong style="color:var(--gold)">Enjoy Programming Pvt Ltd</strong>, where I contribute to live ERP systems and develop expertise in modern web technologies and quality assurance.</p>
+      <a href="#contact" class="btn-gold" style="display:inline-flex;margin-top:.5rem;"><i class="fas fa-arrow-down"></i> Download Resume</a>
+    </div>
+    <div class="reveal-right">
+      <div class="skill-bars">
+        <div class="skill-bar-item">
+          <div class="skill-bar-top"><span class="skill-bar-name">HTML / CSS</span><span class="skill-bar-pct">92%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="92"></div></div>
         </div>
-    </footer>
+        <div class="skill-bar-item">
+          <div class="skill-bar-top"><span class="skill-bar-name">JavaScript</span><span class="skill-bar-pct">80%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="80"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-top"><span class="skill-bar-name">PHP / Node.js</span><span class="skill-bar-pct">72%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="72"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-top"><span class="skill-bar-name">SQL / PostgreSQL</span><span class="skill-bar-pct">75%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="75"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-top"><span class="skill-bar-name">Manual Testing</span><span class="skill-bar-pct">85%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="85"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-top"><span class="skill-bar-name">Figma / UI Design</span><span class="skill-bar-pct">70%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="70"></div></div>
+        </div>
+      </div>
+      <div class="tech-cloud" style="margin-top:2rem;">
+        <div class="tech-pill"><i class="fab fa-html5"></i>HTML5</div>
+        <div class="tech-pill"><i class="fab fa-css3-alt"></i>CSS3</div>
+        <div class="tech-pill"><i class="fab fa-js-square"></i>JavaScript</div>
+        <div class="tech-pill"><i class="fab fa-php"></i>PHP</div>
+        <div class="tech-pill"><i class="fas fa-server"></i>Node.js</div>
+        <div class="tech-pill"><i class="fas fa-database"></i>SQL</div>
+        <div class="tech-pill"><i class="fab fa-bootstrap"></i>Bootstrap</div>
+        <div class="tech-pill"><i class="fab fa-figma"></i>Figma</div>
+        <div class="tech-pill"><i class="fas fa-vial"></i>Testing</div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ══════════════ SERVICES ══════════════ -->
+<section id="services">
+  <div class="sec-label">02 — What I Do</div>
+  <h2 class="sec-title reveal">My <span class="g">Services</span></h2>
+  <div class="services-row">
+    <div class="svc-card reveal">
+      <div class="svc-num">01</div>
+      <div class="svc-icon"><i class="fas fa-code"></i></div>
+      <h3>Web Development</h3>
+      <p>Creating responsive, modern websites with clean, efficient, and maintainable code that performs beautifully on every device.</p>
+      <ul class="svc-features">
+        <li>Responsive Design</li>
+        <li>Performance Optimization</li>
+        <li>Cross-browser Compatibility</li>
+      </ul>
+    </div>
+    <div class="svc-card reveal" style="transition-delay:.1s">
+      <div class="svc-num">02</div>
+      <div class="svc-icon"><i class="fas fa-vial"></i></div>
+      <h3>Manual Testing</h3>
+      <p>Ensuring software quality through comprehensive test case execution, UI validation, and detailed bug reporting.</p>
+      <ul class="svc-features">
+        <li>Test Case Execution</li>
+        <li>UI/UX Validation</li>
+        <li>Bug Detection & Reporting</li>
+      </ul>
+    </div>
+    <div class="svc-card reveal" style="transition-delay:.2s">
+      <div class="svc-num">03</div>
+      <div class="svc-icon"><i class="fas fa-database"></i></div>
+      <h3>Database Management</h3>
+      <p>Designing and optimizing database structures for high-performance, scalable applications with clean data architecture.</p>
+      <ul class="svc-features">
+        <li>Schema Design</li>
+        <li>Query Optimization</li>
+        <li>Data Management</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    <script src="./assets/index.js"></script>
+<!-- ══════════════ PROJECTS ══════════════ -->
+<section id="projects">
+  <div class="sec-label">03 — Portfolio</div>
+  <h2 class="sec-title reveal">Featured <span class="g">Projects</span></h2>
+
+  <div class="proj-filters">
+    <button class="pf-btn on" data-f="all">All</button>
+    <button class="pf-btn" data-f="live">Live</button>
+    <button class="pf-btn" data-f="js">JavaScript</button>
+    <button class="pf-btn" data-f="html">HTML / CSS</button>
+    <button class="pf-btn" data-f="design">Design</button>
+  </div>
+
+  <div class="proj-grid" id="projGrid">
+
+    <!-- LIVE -->
+    <div class="proj-card reveal" data-cat="live">
+      <div class="proj-thumb">
+        <div class="proj-thumb-grid"></div>
+        <div class="proj-thumb-glow"></div>
+        <i class="fas fa-database proj-thumb-icon"></i>
+        <div class="live-tag">Live</div>
+      </div>
+      <div class="proj-body">
+        <h3>ERP NIT</h3>
+        <p>Complete ERP system for Nagpur Institute of Technology — academic and administrative management in one platform.</p>
+        <div class="proj-tags"><span class="ptag">PHP</span><span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">JS</span><span class="ptag">SQL</span></div>
+        <div class="proj-acts"><a href="https://www.nitamms.hp3tech.co.in/" target="_blank" class="pa-primary">View Live</a><a href="#" class="pa-sec">Code</a></div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="live" style="transition-delay:.06s">
+      <div class="proj-thumb">
+        <div class="proj-thumb-grid"></div><div class="proj-thumb-glow"></div>
+        <i class="fas fa-server proj-thumb-icon"></i><div class="live-tag">Live</div>
+      </div>
+      <div class="proj-body">
+        <h3>GSMConnect ERP</h3>
+        <p>ERP platform for NIT Graduate School of Management — student, faculty & academic operations.</p>
+        <div class="proj-tags"><span class="ptag">PHP</span><span class="ptag">HTML</span><span class="ptag">JS</span><span class="ptag">SQL</span></div>
+        <div class="proj-acts"><a href="http://gsmconnect.co.in/" target="_blank" class="pa-primary">View Live</a><a href="#" class="pa-sec">Code</a></div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="live" style="transition-delay:.12s">
+      <div class="proj-thumb">
+        <div class="proj-thumb-grid"></div><div class="proj-thumb-glow"></div>
+        <i class="fas fa-tooth proj-thumb-icon"></i><div class="live-tag">Live</div>
+      </div>
+      <div class="proj-body">
+        <h3>Jogekar Dental Clinic</h3>
+        <p>Professional clinic website with appointment booking and service info, built with clean Bootstrap design.</p>
+        <div class="proj-tags"><span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">Bootstrap</span></div>
+        <div class="proj-acts"><a href="https://himanshufullstackdeveloper.github.io/Jogekar-dental-Clinic/" target="_blank" class="pa-primary">View Live</a><a href="#" class="pa-sec">Code</a></div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="live" style="transition-delay:.18s">
+      <div class="proj-thumb">
+        <div class="proj-thumb-grid"></div><div class="proj-thumb-glow"></div>
+        <i class="fas fa-child proj-thumb-icon"></i><div class="live-tag">Live</div>
+      </div>
+      <div class="proj-body">
+        <h3>Anvay Kidz World</h3>
+        <p>Interactive kids website with educational content and engaging activities, fully responsive.</p>
+        <div class="proj-tags"><span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">Bootstrap</span></div>
+        <div class="proj-acts"><a href="https://himanshufullstackdeveloper.github.io/Anvay-Kidz-Worlds/" target="_blank" class="pa-primary">View Live</a><a href="#" class="pa-sec">Code</a></div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="live" style="transition-delay:.24s">
+      <div class="proj-thumb">
+        <div class="proj-thumb-grid"></div><div class="proj-thumb-glow"></div>
+        <i class="fas fa-shopping-bag proj-thumb-icon"></i><div class="live-tag">Live</div>
+      </div>
+      <div class="proj-body">
+        <h3>StyleShop</h3>
+        <p>Responsive e-commerce website for home decor shopping with modern design and smooth UX.</p>
+        <div class="proj-tags"><span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span></div>
+        <div class="proj-acts"><a href="https://himanshufullstackdeveloper.github.io/styleshop/" target="_blank" class="pa-primary">View Live</a><a href="#" class="pa-sec">Code</a></div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="live" style="transition-delay:.3s">
+      <div class="proj-thumb">
+        <div class="proj-thumb-grid"></div><div class="proj-thumb-glow"></div>
+        <i class="fas fa-coffee proj-thumb-icon"></i><div class="live-tag">Live</div>
+      </div>
+      <div class="proj-body">
+        <h3>Rupal Cafe</h3>
+        <p>Responsive cafe website with menu display, online ordering system and warm design aesthetic.</p>
+        <div class="proj-tags"><span class="ptag">HTML</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span></div>
+        <div class="proj-acts"><a href="https://himanshufullstackdeveloper.github.io/rupal_cafe/" target="_blank" class="pa-primary">View Live</a><a href="#" class="pa-sec">Code</a></div>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <div class="proj-card reveal" data-cat="js">
+      <div class="proj-thumb">
+        <div class="proj-thumb-grid"></div><div class="proj-thumb-glow"></div>
+        <i class="fas fa-calculator proj-thumb-icon"></i>
+      </div>
+      <div class="proj-body">
+        <h3>Calculator</h3>
+        <p>Interactive calculator with arithmetic operations and clean, modern interface built in vanilla JS.</p>
+        <div class="proj-tags"><span class="ptag">JavaScript</span><span class="ptag">HTML</span><span class="ptag">CSS</span></div>
+        <div class="proj-acts"><a href="./projects/calulator.html" class="pa-primary">View Project</a><a href="#" class="pa-sec">Code</a></div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="js" style="transition-delay:.06s">
+      <div class="proj-thumb">
+        <div class="proj-thumb-grid"></div><div class="proj-thumb-glow"></div>
+        <i class="fas fa-gamepad proj-thumb-icon"></i>
+      </div>
+      <div class="proj-body">
+        <h3>KBC Game</h3>
+        <p>Interactive quiz game inspired by Kaun Banega Crorepati with multiple choice questions and live scoring.</p>
+        <div class="proj-tags"><span class="ptag">JavaScript</span><span class="ptag">Quiz</span><span class="ptag">Game</span></div>
+        <div class="proj-acts"><a href="./projects/kbcnew.html" class="pa-primary">View Project</a><a href="#" class="pa-sec">Code</a></div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="js" style="transition-delay:.12s">
+      <div class="proj-thumb">
+        <div class="proj-thumb-grid"></div><div class="proj-thumb-glow"></div>
+        <i class="fas fa-ticket-alt proj-thumb-icon"></i>
+      </div>
+      <div class="proj-body">
+        <h3>Ticket Booking</h3>
+        <p>Web-based movie ticket booking app with seat selection and booking confirmation flow.</p>
+        <div class="proj-tags"><span class="ptag">JavaScript</span><span class="ptag">HTML</span><span class="ptag">CSS</span></div>
+        <div class="proj-acts"><a href="./projects/ticket.html" class="pa-primary">View Project</a><a href="#" class="pa-sec">Code</a></div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="js">
+      <div class="proj-thumb">
+        <div class="proj-thumb-grid"></div><div class="proj-thumb-glow"></div>
+        <i class="fas fa-bolt proj-thumb-icon"></i>
+      </div>
+      <div class="proj-body">
+        <h3>Electric Bill</h3>
+        <p>Calculate and display electricity bills based on user consumption input with tiered pricing logic.</p>
+        <div class="proj-tags"><span class="ptag">JavaScript</span><span class="ptag">HTML</span><span class="ptag">CSS</span></div>
+        <div class="proj-acts"><a href="./projects/electricbill.html" class="pa-primary">View Project</a><a href="#" class="pa-sec">Code</a></div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="js">
+      <div class="proj-thumb">
+        <div class="proj-thumb-grid"></div><div class="proj-thumb-glow"></div>
+        <i class="fas fa-birthday-cake proj-thumb-icon"></i>
+      </div>
+      <div class="proj-body">
+        <h3>Age Calculator</h3>
+        <p>Calculate exact age in years, months, and days from date of birth input.</p>
+        <div class="proj-tags"><span class="ptag">JavaScript</span><span class="ptag">HTML</span><span class="ptag">CSS</span></div>
+        <div class="proj-acts"><a href="./projects/ages.html" class="pa-primary">View Project</a><a href="#" class="pa-sec">Code</a></div>
+      </div>
+    </div>
+
+    <!-- HTML -->
+    <div class="proj-card reveal" data-cat="html">
+      <div class="proj-thumb">
+        <div class="proj-thumb-grid"></div><div class="proj-thumb-glow"></div>
+        <i class="fas fa-flag proj-thumb-icon"></i>
+      </div>
+      <div class="proj-body">
+        <h3>Indian Flag</h3>
+        <p>The national tricolor — saffron, white, green with blue Ashoka Chakra — crafted entirely in CSS.</p>
+        <div class="proj-tags"><span class="ptag">HTML</span><span class="ptag">CSS</span></div>
+        <div class="proj-acts"><a href="./projects/flag.html" class="pa-primary">View Project</a><a href="#" class="pa-sec">Code</a></div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="html">
+      <div class="proj-thumb">
+        <div class="proj-thumb-grid"></div><div class="proj-thumb-glow"></div>
+        <i class="fas fa-fist-raised proj-thumb-icon"></i>
+      </div>
+      <div class="proj-body">
+        <h3>Freedom Fighter</h3>
+        <p>Tribute page dedicated to freedom fighters who risked their lives for independence and social change.</p>
+        <div class="proj-tags"><span class="ptag">HTML</span><span class="ptag">CSS</span></div>
+        <div class="proj-acts"><a href="./projects/freedomfighter.html" class="pa-primary">View Project</a><a href="#" class="pa-sec">Code</a></div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="html">
+      <div class="proj-thumb">
+        <div class="proj-thumb-grid"></div><div class="proj-thumb-glow"></div>
+        <i class="fas fa-user-graduate proj-thumb-icon"></i>
+      </div>
+      <div class="proj-body">
+        <h3>Dr. APJ Abdul Kalam</h3>
+        <p>Tribute page for India's Missile Man — aerospace scientist and the 11th President of India.</p>
+        <div class="proj-tags"><span class="ptag">HTML</span></div>
+        <div class="proj-acts"><a href="./projects/ajabualkalam.html" class="pa-primary">View Project</a><a href="#" class="pa-sec">Code</a></div>
+      </div>
+    </div>
+
+    <!-- DESIGN -->
+    <div class="proj-card reveal" data-cat="design">
+      <div class="proj-thumb">
+        <div class="proj-thumb-grid"></div><div class="proj-thumb-glow"></div>
+        <i class="fab fa-figma proj-thumb-icon"></i>
+      </div>
+      <div class="proj-body">
+        <h3>Anvay Kidz World — Figma</h3>
+        <p>Complete shop UI/UX design for a children's world store, crafted with playful Figma design.</p>
+        <div class="proj-tags"><span class="ptag">Figma</span><span class="ptag">UI/UX</span><span class="ptag">Design</span></div>
+        <div class="proj-acts"><a href="https://www.figma.com/design/UXaFBgOnM6CRDQFGlJgJ9q/" target="_blank" class="pa-primary">View Design</a></div>
+      </div>
+    </div>
+
+    <div class="proj-card reveal" data-cat="design">
+      <div class="proj-thumb">
+        <div class="proj-thumb-grid"></div><div class="proj-thumb-glow"></div>
+        <i class="fab fa-figma proj-thumb-icon"></i>
+      </div>
+      <div class="proj-body">
+        <h3>Yogekar Dental — Figma</h3>
+        <p>Clean, professional dental clinic website UI designed in Figma with a calm medical palette.</p>
+        <div class="proj-tags"><span class="ptag">Figma</span><span class="ptag">UI/UX</span><span class="ptag">Design</span></div>
+        <div class="proj-acts"><a href="https://www.figma.com/design/OIpA5spnBx3EfTlwc6Clml/" target="_blank" class="pa-primary">View Design</a></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ EXPERIENCE ══════════════ -->
+<section id="experience">
+  <div class="sec-label">04 — Journey</div>
+  <h2 class="sec-title reveal">Experience &amp; <span class="g">Achievements</span></h2>
+
+  <div class="exp-layout">
+    <div class="reveal-left">
+      <div class="intern-card">
+        <div class="intern-header">
+          <span class="intern-emoji">🚀</span>
+          <div>
+            <h3>Current Internship</h3>
+            <p>Enjoy Programming Pvt Ltd</p>
+          </div>
+        </div>
+        <div class="intern-grid">
+          <div class="intern-item"><label>Duration</label><span>Jan 2024 – Present</span></div>
+          <div class="intern-item"><label>Location</label><span>Katol, Maharashtra</span></div>
+          <div class="intern-item"><label>Mode</label><span>On-site</span></div>
+          <div class="intern-item"><label>Status</label><span>🟢 Active</span></div>
+        </div>
+        <div class="intern-pills">
+          <div class="ipill">🧪 Manual Testing</div>
+          <div class="ipill">📱 Responsive Design</div>
+          <div class="ipill">💻 Frontend Dev</div>
+          <div class="ipill">🎨 UI/UX</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stat-stack reveal-right">
+      <div class="stat-card">
+        <div class="stat-card-num">1+</div>
+        <div class="stat-card-info"><label>Years Experience</label><span>Full Stack Development</span></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-num">50+</div>
+        <div class="stat-card-info"><label>Projects Completed</label><span>Web Apps & Websites</span></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-card-num">6+</div>
+        <div class="stat-card-info"><label>Live Websites</label><span>In Active Production</span></div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🏆</div>
+        <div class="cert-info"><label>Certification</label><span>Level 1 — Professional Dev</span></div>
+        <div class="cert-badge">Certified</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<section id="contact">
+  <div class="sec-label">05 — Get In Touch</div>
+  <h2 class="sec-title reveal">Let's <span class="g">Connect</span></h2>
+
+  <div class="contact-wrap">
+    <div class="contact-grid">
+      <a href="https://github.com/HIMANSHUFULLSTACKDEVELOPER" target="_blank" class="con-card reveal">
+        <div class="con-icon"><i class="fab fa-github"></i></div>
+        <h4>GitHub</h4>
+        <span>HIMANSHUFULLSTACKDEVELOPER</span>
+      </a>
+      <a href="https://www.linkedin.com/in/himanshu-patil-1630412b1" target="_blank" class="con-card reveal" style="transition-delay:.07s">
+        <div class="con-icon"><i class="fab fa-linkedin-in"></i></div>
+        <h4>LinkedIn</h4>
+        <span>Connect with me</span>
+      </a>
+      <a href="mailto:patilhimanshu46875@gmail.com" class="con-card reveal" style="transition-delay:.14s">
+        <div class="con-icon"><i class="fas fa-envelope"></i></div>
+        <h4>Email</h4>
+        <span>patilhimanshu46875@gmail.com</span>
+      </a>
+      <a href="tel:+918788209773" class="con-card reveal" style="transition-delay:.21s">
+        <div class="con-icon"><i class="fas fa-phone"></i></div>
+        <h4>Phone</h4>
+        <span>+91 8788209773</span>
+      </a>
+      <div class="con-card reveal" style="transition-delay:.28s">
+        <div class="con-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <h4>Location</h4>
+        <p>Nagpur, Maharashtra, India</p>
+      </div>
+      <div class="con-card reveal" style="transition-delay:.35s;border-color:rgba(0,212,170,.25);">
+        <div class="con-icon" style="background:rgba(0,212,170,.1);border-color:rgba(0,212,170,.25);color:var(--green);"><i class="fas fa-circle"></i></div>
+        <h4>Availability</h4>
+        <p style="color:var(--green);">Open to Work</p>
+      </div>
+    </div>
+
+    <div class="contact-cta reveal">
+      <h3>Have a project in mind?</h3>
+      <p>I'm always excited to collaborate on great ideas. Let's build something wonderful together.</p>
+      <a href="mailto:patilhimanshu46875@gmail.com" class="btn-gold"><i class="fas fa-paper-plane"></i> Send me an Email</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">Himanshu Patil</div>
+  <p>© 2025 Himanshu Patil · All rights reserved</p>
+  <p>Built with ❤️ &amp; ☕ · Nagpur, India</p>
+</footer>
+
+<!-- ══════════════ SCRIPTS ══════════════ -->
+<script>
+/* ── CANVAS PARTICLES ── */
+(function(){
+  const c=document.getElementById('bgCanvas');
+  const ctx=c.getContext('2d');
+  let W,H,pts=[];
+  function resize(){W=c.width=innerWidth;H=c.height=innerHeight;}
+  resize();window.addEventListener('resize',resize);
+  function rnd(a,b){return a+Math.random()*(b-a);}
+  for(let i=0;i<90;i++){
+    pts.push({
+      x:rnd(0,W),y:rnd(0,H),
+      vx:rnd(-.25,.25),vy:rnd(-.25,.25),
+      r:rnd(.5,1.5),
+      a:rnd(.1,.5)
+    });
+  }
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    // connections
+    for(let i=0;i<pts.length;i++){
+      for(let j=i+1;j<pts.length;j++){
+        const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y;
+        const d=Math.sqrt(dx*dx+dy*dy);
+        if(d<140){
+          ctx.beginPath();
+          ctx.strokeStyle=`rgba(245,166,35,${.07*(1-d/140)})`;
+          ctx.lineWidth=.5;
+          ctx.moveTo(pts[i].x,pts[i].y);
+          ctx.lineTo(pts[j].x,pts[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+    pts.forEach(p=>{
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(245,166,35,${p.a})`;
+      ctx.fill();
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>W)p.vx*=-1;
+      if(p.y<0||p.y>H)p.vy*=-1;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── CURSOR ── */
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function animCur(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;cur2.style.left=rx+'px';cur2.style.top=ry+'px';requestAnimationFrame(animCur);})();
+document.querySelectorAll('a,button,.pf-btn,.proj-card,.svc-card,.con-card,.stat-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hovering'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hovering'));
+});
+
+/* ── NAV SCROLL ── */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('solid',scrollY>60);
+});
+
+/* ── TYPING EFFECT ── */
+const roles=['Full-Stack Developer','Web Designer','Manual Tester','Problem Solver','UI/UX Enthusiast'];
+let ri=0,ci=0,del=false;
+const el=document.getElementById('typeText');
+function type(){
+  const word=roles[ri];
+  if(!del){
+    el.textContent=word.slice(0,++ci);
+    if(ci===word.length){del=true;setTimeout(type,1600);return;}
+  } else {
+    el.textContent=word.slice(0,--ci);
+    if(ci===0){del=false;ri=(ri+1)%roles.length;}
+  }
+  setTimeout(type,del?55:90);
+}
+type();
+
+/* ── SCROLL REVEAL ── */
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('in'),50);
+      // Animate skill bars
+      e.target.querySelectorAll('.skill-bar-fill').forEach(b=>{
+        b.style.width=b.dataset.w+'%';
+      });
+    }
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(r=>observer.observe(r));
+
+/* ── PROJECT FILTER ── */
+document.querySelectorAll('.pf-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.pf-btn').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    const f=btn.dataset.f;
+    document.querySelectorAll('.proj-card').forEach(c=>{
+      const show=f==='all'||c.dataset.cat===f;
+      c.style.display=show?'':'none';
+    });
+  });
+});
+
+/* ── PROFILE IMG ── */
+const img=document.querySelector('.profile-card-wrap img');
+const fb=document.getElementById('pfallback');
+if(img){
+  img.addEventListener('load',()=>{fb.style.display='none';});
+  img.addEventListener('error',()=>{fb.style.display='flex';});
+  if(img.complete&&img.naturalWidth===0)fb.style.display='flex';
+}
+</script>
 </body>
-
-
 </html>
