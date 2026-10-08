@@ -327,6 +327,23 @@ footer{background:var(--ink2);color:#8d99b8;font-size:.85rem;padding:1.6rem 0 ca
 #up:hover{transform:translateY(-6px) scale(1.1)}
 #up i{transition:transform .3s}#up:hover i{transform:translateY(-3px)}
 
+/* resume */
+.rs-card{display:flex;align-items:center;gap:1.3rem;flex-wrap:wrap;max-width:900px;margin:0 auto 1.4rem;padding:1.5rem 1.8rem;background:var(--bg);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
+.rs-ico{width:60px;height:60px;border-radius:18px;display:grid;place-items:center;font-size:1.6rem;color:#fff;background:linear-gradient(135deg,#ef4444,#f97316);flex-shrink:0;transition:transform .5s var(--spring)}
+.rs-card:hover .rs-ico{transform:rotate(-10deg) scale(1.12)}
+.rs-text{flex:1;min-width:180px}
+.rs-text h3{font-size:1.2rem;margin-bottom:.15rem}
+.rs-text p{color:var(--muted);font-size:.9rem}
+.rs-btns{display:flex;gap:.7rem;flex-wrap:wrap}
+.rs-frame{max-width:900px;margin:0 auto;height:min(80vh,820px);border:1px solid var(--line);border-radius:22px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+.rs-frame iframe{width:100%;height:100%;border:0;display:block}
+@media(max-width:720px){
+  .rs-card{justify-content:center;text-align:center}
+  .rs-btns{width:100%}
+  .rs-btns .btn{flex:1 1 100%;justify-content:center}
+  .rs-frame{display:none} /* phones can't preview PDFs inline, so the buttons are used instead */
+}
+
 /* ============ RESPONSIVE ============ */
 @media(min-width:1400px){.wrap{max-width:1240px}}
 
@@ -484,7 +501,7 @@ footer{background:var(--ink2);color:#8d99b8;font-size:.85rem;padding:1.6rem 0 ca
   <a href="#hero" class="logo">Himanshu<span>.</span></a>
   <ul class="links" id="links">
     <li><a href="#about">About</a></li><li><a href="#projects">Projects</a></li><li><a href="#experience">Experience</a></li>
-    <li><a href="#certificates">Certificates</a></li><li><a href="#contact">Contact</a></li>
+    <li><a href="#certificates">Certificates</a></li><li><a href="#resume">Resume</a></li><li><a href="#contact">Contact</a></li>
   </ul>
   <a href="mailto:patilhimanshu46875@gmail.com" class="nav-cta">Hire me</a>
   <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="links"><i class="fas fa-bars"></i></button>
@@ -503,6 +520,7 @@ footer{background:var(--ink2);color:#8d99b8;font-size:.85rem;padding:1.6rem 0 ca
       <div class="btns">
         <a href="#projects" class="btn btn-pri" data-mag><i class="fas fa-rocket"></i>See my projects</a>
         <a href="#contact" class="btn btn-out" data-mag><i class="fas fa-paper-plane"></i>Contact me</a>
+        <a href="Resume%20-%20HIMANSHU%20RAJENDRA%20PATIL.pdf" target="_blank" rel="noopener" class="btn btn-out" data-mag><i class="fas fa-file-pdf"></i>Resume</a>
       </div>
       <div class="hsoc">
         <a href="https://github.com/HIMANSHUFULLSTACKDEVELOPER" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -609,6 +627,28 @@ footer{background:var(--ink2);color:#8d99b8;font-size:.85rem;padding:1.6rem 0 ca
       <div class="cert spot reveal"><div class="ci"><i class="fas fa-lightbulb"></i></div><div><h3>Build4Nagpur Innovation Week</h3><p>Innovation program held in Nagpur.</p><small>Program</small></div></div>
       <div class="cert spot reveal" style="transition-delay:.08s"><div class="ci"><i class="fas fa-award"></i></div><div><h3>Certificate of Participation</h3><p>Nagpur Institute of Technology.</p><small>July 2026</small></div></div>
       <div class="cert wide spot reveal"><div class="ci"><i class="fas fa-keyboard"></i></div><div><h3>Computer Typing and Data Entry</h3><p>English typing.</p><small>Certified</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="resume" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>My <span class="grad">resume</span></h2><p>View it right here or download a copy.</p></div>
+
+    <div class="rs-card spot reveal">
+      <div class="rs-ico"><i class="fas fa-file-pdf"></i></div>
+      <div class="rs-text">
+        <h3>Himanshu Rajendra Patil</h3>
+        <p>Full Stack Developer · PDF</p>
+      </div>
+      <div class="rs-btns">
+        <a class="btn btn-pri" href="Resume%20-%20HIMANSHU%20RAJENDRA%20PATIL.pdf" target="_blank" rel="noopener"><i class="fas fa-eye"></i>View resume</a>
+        <a class="btn btn-out" href="Resume%20-%20HIMANSHU%20RAJENDRA%20PATIL.pdf" download="Himanshu-Patil-Resume.pdf"><i class="fas fa-download"></i>Download</a>
+      </div>
+    </div>
+
+    <div class="rs-frame reveal">
+      <iframe src="Resume%20-%20HIMANSHU%20RAJENDRA%20PATIL.pdf#view=FitH" title="Himanshu Patil resume" loading="lazy"></iframe>
     </div>
   </div>
 </section>
